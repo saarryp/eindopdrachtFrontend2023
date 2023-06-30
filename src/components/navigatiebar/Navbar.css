@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200&family=Playfair:wght@300&display=swap');
+
+/*
+    KLEUR WIT RAND IS: #F5F5F5;
+    KLEUR SOUL SOUNDS: #F4E3B6;
+    KLEUR ONDERSCHRIFT: #B89437;
+    KLEUR WIT TEKST: #FFFFFF;
+    KLEUR ZWART ACHTERGROND: #121111;
+    KLEUR BUTTONS ETC: #F4E3B6*
+    KLEUR INVOERVELDEN TOP 10:#FAF8E7;
+    KLEUR 'SEARCH': #B89437;
+    KLEUR BALK SEARCH: #F5F5F5;
+    KLEUR TEKST ZWART: #000000;
+*/
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-container {
+    margin-left: 75px;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.brand-name {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #F4E3B6;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color:#B89437;
+    letter-spacing: 2px;
+}
+
+.nav-links-container {
+    list-style-type: none;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 55px;
+    margin-right: 75px;
+}
+
+
+
+
+/*
+
+.header-container {
+  background-color: #121111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px dotted yellow;
+}
+
+.logo-soulSounds{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-left: 30px;
+  padding-bottom: 10px;
+  border: 4px dotted darkorange;
+}
+
+.subtitle-navigation {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color:#B89437;
+  letter-spacing: 2px;
+    margin: -25px 60px 60px;
+    border: 2px dotted white;
+}
+
+h1 {
+  font-size: 50px;
+  color: #F4E3B6;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+}
+
+
+.pages-soulSound {
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color:#FFFFFF;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 2px ;
+  padding: 20px;
+  margin: 0;
+}
+
+.pages-soulSound li {
+  margin-right: 25px;
+}
+*/
