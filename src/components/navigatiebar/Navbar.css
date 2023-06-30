@@ -19,6 +19,11 @@ nav {
     justify-content: space-between;
 }
 
+.nav-head-container {
+    border: 2px dotted lightseagreen;
+    margin-bottom: 25px;
+}
+
 .header-container {
     margin-left: 75px;
     margin-top: 35px;
@@ -26,6 +31,7 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    border: 2px dotted yellow;
 
 }
 
@@ -34,12 +40,13 @@ nav {
     font-size: 40px;
     color: #F4E3B6;
     letter-spacing: 2px;
+
 }
 
 .subtitle {
-    font-size: 14px;
+    font-size: 16px;
     color:#B89437;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
 }
 
 .nav-links-container {

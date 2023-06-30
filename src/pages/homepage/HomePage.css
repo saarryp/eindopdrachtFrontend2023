@@ -1,3 +1,15 @@
 h1 {
     color: greenyellow;
 }
+
+.image-resize {
+    width: 1359px;
+    height: auto;
+    margin: 0;
+    /*border: 2px dotted red;*/
+}
+.homepage-text p {
+    margin: 10px;
+    font-size: 14px;
+    color: white;
+}
