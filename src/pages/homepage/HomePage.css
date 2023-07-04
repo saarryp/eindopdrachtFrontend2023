@@ -1,15 +1,64 @@
-h1 {
-    color: greenyellow;
+.container-homepage-photo {
+    background-image: url("../../assets/gil-scott-heron.jpg") ;
+    background-size: cover;
+    background-position: center;
+    /*position: relative;*/
+    border: 2px double deepskyblue;
+    width: 1350px;
+    height:1000px;
+    display: flex;
+    flex-direction: row;
 }
 
-.image-resize {
-    width: 1359px;
-    height: auto;
-    margin: 0;
-    /*border: 2px dotted red;*/
+.container-text {
+    display: flex;
+    flex-direction: column;
+    border: 2px double greenyellow;
 }
+.image-element {
+    /*width: 1350px;*/
+    /*height: auto;*/
+    /*margin: 0;*/
+    display: block;
+    object-fit: cover;
+    border: 2px dotted red;
+}
+
 .homepage-text p {
     margin: 10px;
     font-size: 14px;
+    font-family: 'Inter', sans-serif;
     color: white;
+    border: 2px dotted yellow;
+}
+
+
+
+.container-subscribe-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px double mediumpurple;
+}
+
+.label-block {
+    font-size: 14px;
+    background-color: #F4E3B6;
+    color: #121111;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 35px;
+}
+
+.button-circle {
+    background-color: #F4E3B6;
+    color: #121111;
+    font-family: 'Inter', sans-serif;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
