@@ -11,8 +11,6 @@
 /*KLEUR BALK SEARCH: #F5F5F5;*/
 /*KLEUR TEKST ZWART: #000000; *!*/
 
-
-
 h1,h2,h3,h4 {
   font-family: 'Inter', sans-serif;
 }
@@ -32,8 +30,8 @@ a:visited {
   color: white;
 }
 
-h1,h2,h3,h4 {
-  font-family: 'Inter', sans-serif;
+body {
+  background-color: #121111;
 }
 
-/* alle ander css komt hier onder */
+/* alle andere css komt hier onder in andere bestanden */

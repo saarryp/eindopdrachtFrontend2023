@@ -1,12 +1,5 @@
-.container-homepage-photo {
-    height:100%;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    justify-content: flex-end;
-}
-.image-element{
-    background-image: url("../../assets/vierkantGil.jpg") ;
+.image-element-gl {
+    background-image: url("../../assets/vierkantGil.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
@@ -16,75 +9,23 @@
     flex-basis: auto;
 }
 
+.about-us {
+    text-align: center;
+}
+
 .position-text-and-rest {
     display: flex;
     flex-direction: column;
-    background-color: black;
-    padding-right: 60px;
-    padding-top: 120px;
-    /*border: 4px dotted deeppink;*/
+    margin: 100px;
 }
 
-.container-text {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 120px;
-    margin-right: 60px;
-    /*border: 2px double greenyellow;*/
-}
-
-.homepage-text p {
-    font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    color: white;
-    white-space: nowrap;
-    line-height: 2.5;
-    /*border: 2px dotted yellow;*/
-}
-
-.homepage-text .yes {
+.about-us .yes {
     font-size: 18px;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    /*margin: 40px;*/
+    margin: 50px 0 40px 0;
 }
 
-.homepage-text .inspire {
+.about-us .inspire {
+    margin: 50px 0 70px 0;
     font-size: 30px;
-    margin-top: 100px;
-    margin-bottom: 30px;
     font-weight: bolder;
 }
-
-.container-subscribe-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 5px;
-    /*border: 2px double mediumpurple;*/
-}
-
-/*.subscribe-button {*/
-/*    font-size: 14px;*/
-/*    background-color: #F4E3B6;*/
-/*    color: #121111;*/
-/*    font-family: 'Inter', sans-serif;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    width: 150px;*/
-/*    height: 35px;*/
-/*}*/
-
-/*.login-button {*/
-/*    background-color: #F4E3B6;*/
-/*    color: #121111;*/
-/*    font-family: 'Inter', sans-serif;*/
-/*    width: 120px;*/
-/*    height: 120px;*/
-/*    border-radius: 50%;*/
-/*}*/

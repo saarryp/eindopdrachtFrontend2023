@@ -12,26 +12,27 @@ export default function AboutUs() {
                     <div className="position-text-button">
                      <div className="container-text-about">
                         <article className="about-us">
-                            <p> Does the algorithm decide what the best fit should be?</p>
-                            <p>Bloody annoying right?</p>
+                            <p> We love music, sweet soul music.</p>
+                            <p>And we were really tired of algorithms deciding what our next song should be. </p>
+                            <p>We would like to be introduced to hidden gems.</p>
+                            <p>No more 'I will survive' and 'My girl', even though great tracks.</p>
                             <p>We decided to get involved and set up a music platform.</p>
                             <p> So what is the deal?</p>
                             <p className="bangers">MAKE YOUR OWN TOP 10 BANGERS</p>
                             <p>Could be anything from jazz to disco to house to soul.</p>
-                            <p> As long as we can groove on it. </p>
+                            <p> Our motto is that you must feel the groove. </p>
                             <p>And trust us, it is harder than you think.</p>
-                            <p>By bringing all soulful music lovers together, we hope to get you inspired. </p>
-                            <p>And you inspire others with your not-to-be-missed songs.</p>
+                            <p>By bringing all soulful music lovers together. </p>
+                            <p>Join us in our crusade for good soulful music.</p>
+                            <p>Inspire others and get inspired with not-to-be-missed songs.</p>
                             <p className="go-on">Go on and make your own list!</p>
                         </article>
                         <div className="container-subscribe-button-about">
                             <SubscribeButton/>
-                    {/*<button className="subscribe-button">SUBSCRIBE</button>*/}
                             <LoginButton/>
-                    {/*<button className="login-button">LOGIN</button>*/}
                         </div>
-                     </div>
-                     </div>
+                    </div>
+                    </div>
             </div>
         </>
     );
