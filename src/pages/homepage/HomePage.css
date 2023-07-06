@@ -68,23 +68,23 @@
     /*border: 2px double mediumpurple;*/
 }
 
-.subscribe-button {
-    font-size: 14px;
-    background-color: #F4E3B6;
-    color: #121111;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 35px;
-}
+/*.subscribe-button {*/
+/*    font-size: 14px;*/
+/*    background-color: #F4E3B6;*/
+/*    color: #121111;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 150px;*/
+/*    height: 35px;*/
+/*}*/
 
-.login-button {
-    background-color: #F4E3B6;
-    color: #121111;
-    font-family: 'Inter', sans-serif;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
+/*.login-button {*/
+/*    background-color: #F4E3B6;*/
+/*    color: #121111;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    width: 120px;*/
+/*    height: 120px;*/
+/*    border-radius: 50%;*/
+/*}*/

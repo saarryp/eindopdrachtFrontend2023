@@ -1,6 +1,8 @@
 import React from 'react';
 import "./HomePage.css";
 // import gil from "../../assets/gil-scott-heron.jpg";
+import LoginButton from "../../components/loginButton/LoginButton";
+import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
 
 
 export default function Home() {
@@ -19,11 +21,13 @@ export default function Home() {
                             <p>Join our platform of fellow music-lovers.</p>
                             <p>Make your own top 10 of not-to-be-missed tunes.</p>
                             <p className="inspire"> INSPIRE AND GET INSPIRED.</p>
-                    </article>
+                        </article>
                     </div>
                     <div className="container-subscribe-button">
-                        <button className= "subscribe-button">SUBSCRIBE</button>
-                        <button className="login-button">LOG IN</button>
+                        <SubscribeButton/>
+                        {/*<button className= "subscribe-button">SUBSCRIBE</button>*/}
+                        <LoginButton/>
+                        {/*<button className="login-button">LOG IN</button>*/}
                     </div>
                </div>
         </div>

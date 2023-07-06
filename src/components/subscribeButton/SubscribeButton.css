@@ -1,0 +1,12 @@
+.subscribe-button {
+    font-size: 14px;
+    background-color: #F4E3B6;
+    color: #121111;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 35px;
+    border: 2px black;
+}

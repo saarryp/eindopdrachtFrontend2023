@@ -4,9 +4,10 @@
     flex-direction: row;
     position: relative;
     justify-content: flex-end;
+    background-color: #121111;
 }
 .image-element-au{
-    background-image: url("../../assets/Jill Scott.png") ;
+    background-image: url("../../assets/vierkantJillScott.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
@@ -14,6 +15,7 @@
     min-height: 90vh;
     position: relative;
     flex-basis: auto;
+
 }
 
 .position-text-and-button {
@@ -21,6 +23,7 @@
     flex-direction: column;
     background-color: black;
     padding-right: 1px;
+    flex: 1;
     border: 4px dotted deeppink;
 }
 
@@ -28,9 +31,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 120px;
     margin-right: 40px;
-    border: 2px double greenyellow;
+    padding-left: 40px;
+    /*border: 2px double greenyellow;*/
 }
 
 .about-us p {
@@ -44,16 +48,15 @@
 
 .about-us .bangers {
     font-size: 30px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     color: #F4E3B6;
 }
 
 .about-us .go-on{
     font-size: 20px;
-    padding-top: 100px;
-    padding-bottom: 75px;
-
+    padding-top: 120px;
+    padding-bottom: 50px;
 }
 
 .container-subscribe-button-about {
@@ -63,30 +66,29 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding-top: 75px;
-
-    border: 2px double mediumpurple;
+    padding-top: 100px;
+    /*border: 2px double mediumpurple;*/
 }
 
-.subscribe-button {
-    font-size: 14px;
-    background-color: #F4E3B6;
-    color: #121111;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 35px;
-    border: 2px solid #121111;
-}
+/*.subscribe-button {*/
+/*    font-size: 14px;*/
+/*    background-color: #F4E3B6;*/
+/*    color: #121111;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 150px;*/
+/*    height: 35px;*/
+/*    border: 2px solid #121111;*/
+/*}*/
 
-.login-button {
-    background-color: #F4E3B6;
-    color: #121111;
-    font-family: 'Inter', sans-serif;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid #121111;
-}
+/*.login-button {*/
+/*    background-color: #F4E3B6;*/
+/*    color: #121111;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    width: 120px;*/
+/*    height: 120px;*/
+/*    border-radius: 50%;*/
+/*    border: 2px solid #121111;*/
+/*}*/
