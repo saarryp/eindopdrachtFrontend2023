@@ -27,13 +27,14 @@ export default function Search() {
         }
     }
     return (
-        <section>
-            <h1> Zoeken zoeken zoeken</h1>
-            <form onSubmit={handleSubmit}>
-                <h2>Find Artist</h2>
-                <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}/>
-                <button type="submit">Search</button>
-            </form>
+
+          <div className="container-photo-search-engine">
+              <div className="background-photo"></div>
+                <form onSubmit={handleSubmit}>
+                    <h2>Find Artist</h2>
+                    <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}/>
+                    <button classname="search-button" type="submit">Search</button>
+                </form>
             <div>
                 <ul>
                     {artists.map((artist) => (
@@ -41,17 +42,11 @@ export default function Search() {
                     ))}
                 </ul>
             </div>
-        </section>
-    )
+          </div>
+    );
 }
 
 
 
 
 
-    // return (
-    //     <>
-    //         <h1>Searching SaaR.. is ze hier of daar</h1>
-    //     </>
-    // )
-// }
