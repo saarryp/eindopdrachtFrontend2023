@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import Home from "./pages/homepage/Homepage"
+import Home from "./pages/homepage/HomePage";
 import Navbar from "./components/navigatiebar/Navbar";
-import AboutUs from "./pages/aboutus/AboutUs"
+import AboutUs from "./pages/aboutUs/AboutUs"
 import OurSounds from "./pages/ourSounds/OurSounds";
 import Search from "./pages/search/Search";
 import MySounds from "./pages/mysounds/MySounds";

@@ -1,3 +1,31 @@
-h1 {
-    color: greenyellow;
+.image-element-gl {
+    background-image: url("../../assets/vierkantGil.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    width: 100%;
+    min-height: 90vh;
+    position: relative;
+    flex-basis: auto;
+}
+
+.about-us {
+    text-align: center;
+}
+
+.position-text-and-rest {
+    display: flex;
+    flex-direction: column;
+    margin: 140px;
+}
+
+.about-us .yes {
+    font-size: 18px;
+    margin: 60px 0 60px 0;
+}
+
+.about-us .inspire {
+    margin: 90px 0 60px 0;
+    font-size: 30px;
+    font-weight: bolder;
 }

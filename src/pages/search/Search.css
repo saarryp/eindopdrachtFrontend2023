@@ -1,0 +1,25 @@
+.container-photo-search-engine {
+    display: flex;
+    background-image: url("../../assets/ErykahBadu.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 90vh;
+    position: relative;
+    flex-basis: auto;
+}
+
+
+/*.search-button {*/
+/*    font-size: 16px;*/
+/*    background-color: #121111;*/
+/*    color: #F4E3B6;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    border-color: #121111;*/
+/*    border-radius: 50%;*/
+/*}*/

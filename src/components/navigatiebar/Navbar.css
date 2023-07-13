@@ -19,6 +19,11 @@ nav {
     justify-content: space-between;
 }
 
+.nav-head-container {
+    /*border: 2px dotted lightseagreen;*/
+    margin-bottom: 25px;
+}
+
 .header-container {
     margin-left: 75px;
     margin-top: 35px;
@@ -26,6 +31,7 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    /*border: 2px dotted yellow;*/
 
 }
 
@@ -34,12 +40,14 @@ nav {
     font-size: 40px;
     color: #F4E3B6;
     letter-spacing: 2px;
+
 }
 
 .subtitle {
-    font-size: 14px;
+    font-size: 16px;
     color:#B89437;
-    letter-spacing: 2px;
+    /*color: #DCB66C;*/
+    letter-spacing: 4px;
 }
 
 .nav-links-container {
@@ -55,59 +63,3 @@ nav {
 
 
 
-/*
-
-.header-container {
-  background-color: #121111;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 2px dotted yellow;
-}
-
-.logo-soulSounds{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  padding-left: 30px;
-  padding-bottom: 10px;
-  border: 4px dotted darkorange;
-}
-
-.subtitle-navigation {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color:#B89437;
-  letter-spacing: 2px;
-    margin: -25px 60px 60px;
-    border: 2px dotted white;
-}
-
-h1 {
-  font-size: 50px;
-  color: #F4E3B6;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
-  margin-left: 15px;
-}
-
-
-.pages-soulSound {
-  font-size: 14px;
-  font-family: 'Inter', sans-serif;
-  color:#FFFFFF;
-  list-style-type: none;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  align-items: center;
-  letter-spacing: 2px ;
-  padding: 20px;
-  margin: 0;
-}
-
-.pages-soulSound li {
-  margin-right: 25px;
-}
-*/

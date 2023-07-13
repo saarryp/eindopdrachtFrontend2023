@@ -6,10 +6,10 @@ import {NavLink} from "react-router-dom";
 export default function Navbar() {
     return (
         <>
-            <nav>
+            <nav className= "nav-head-container">
                 <div className="header-container">
                     <h1 className="brand-name">soul sounds</h1>
-                    <p className="subtitle">what is your favorite tune</p>
+                    <p className="subtitle">what is your favorite tune?</p>
                 </div>
                 <div className="nav-links-container">
                     <NavLink to="/"><p>home</p></NavLink>
