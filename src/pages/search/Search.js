@@ -23,7 +23,8 @@ export default function Search() {
     }
 
 
-    // op andeer manier het object van de discogs inzetten waarbij je waarschijnlijk onder "thumb" te vinden is {
+    // op andeer manier het object van de discogs inzetten waarbij je waarschijnlijk onder "thumb" te vinden is zie body
+    // status{
     //   "pagination": {
     //     "per_page": 50,
     //     "items": 9,
