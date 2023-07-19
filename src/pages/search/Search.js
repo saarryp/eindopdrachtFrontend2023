@@ -55,7 +55,8 @@ export default function Search() {
     return (
 
           <div className="container-photo-search-engine">
-              <div className="background-photo"></div>
+              <div className="position-button-and-results">
+              {/*<div className="background-photo"></div>*/}
                 <form onSubmit={handleSubmit}>
                     <h2>Find Artist</h2>
                     <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}/>
@@ -64,17 +65,18 @@ export default function Search() {
             <div>
                 <ul className="ul-position">
                    {artists.map((artist) =>
-                       <li key={artist.id}><strong>{artist.title}</strong>
-                            {artist.thumb && <img src={artist.thumb} alt={artist.title}/>}
+                       <li className="list-item">
+                           <span key={artist.id}>
+                           {artist.thumb && <img src={artist.thumb} alt={artist.title}/>}</span>
+                           <h2> {artist.title}</h2>
                      </li>
                   )}
                 </ul>
             </div>
+            </div>
           </div>
     );
 }
-
-
 
 
 
