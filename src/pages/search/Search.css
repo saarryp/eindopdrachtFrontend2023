@@ -10,6 +10,20 @@
 }
 
 
+.search-button {
+
+}
+
+.ul-position {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    list-style: none;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
 /*.search-button {*/
 /*    font-size: 16px;*/
 /*    background-color: #121111;*/
