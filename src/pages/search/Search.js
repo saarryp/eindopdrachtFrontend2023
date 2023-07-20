@@ -57,7 +57,7 @@ export default function Search() {
         <div className="container-photo-search-engine">
             <div className="position-button-and-results">
                 <form className="form-search-size" onSubmit={handleSubmit}>
-                    <input
+                    <input className="input-field"
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
@@ -70,12 +70,18 @@ export default function Search() {
                     <ul className="ul-position">
                         {results.albummatches.album.map((album) => (
                             <li key={album.mbid} onClick={() => handleAlbumClick(album.mbid)}>
-                <span>
-                  {album.image && <img src={album.image[2]["#text"]} alt={album.name} />}
-                </span>
+                                <span>
+                                    {album.image && <img src={album.image[2]["#text"]} alt={album.name} />}
+                                </span>
                                 <h2 className="artist">{album.artist}</h2>
                                 <p className="title">{album.name}</p>
-                                {/* You can add more album details here if needed */}
+                                {album.tracks && (
+                                    <ul>
+                                        {album.tracks.track.map((track) => (
+                                            <li key={track.name}>{track.name}</li>
+                                        ))}
+                                    </ul>
+                                )}
                             </li>
                         ))}
                     </ul>

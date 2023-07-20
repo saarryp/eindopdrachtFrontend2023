@@ -1,7 +1,7 @@
 .container-photo-search-engine {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-content: center;
     background-image: url("../../assets/ErykahBadu.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,35 +28,28 @@
     max-width: 1000px;
     margin: auto;
     padding: 20px;
-    /*margin: 30px;*/
-    /*width: 80%;*/
-    /*max-width: 200px;*/
 }
-
-/*.position-button-and-rest {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: flex-end;*/
-/*    width: 100%;*/
-/*    max-width: 1000px;*/
-/*    margin: auto;*/
-/*    padding: 20px;*/
-/*    border: 2px dotted darkorange;*/
-/*}*/
+ .input-field {
+     height:60px;
+     font-family: 'Inter', sans-serif;
+     font-size: 25px;
+     width: 100%;
+     max-width: 350px;
+     margin-left: 20px;
+ }
 
 .search-button {
     margin-top: 10px;
     padding: 15px 30px;
     background-color: #B89437;
-    /*border: black;*/
     color: white;
-    border: 2px dotted yellow;
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     font-size: 25px;
     width: 100%;
     max-width: 200px;
+    border: 2px dotted yellow;
 }
 
 .ul-position {
@@ -111,19 +104,3 @@ h2{
     border: 2px solid red;
 }
 
-
-
-
-/*.search-button {*/
-/*    font-size: 16px;*/
-/*    background-color: #121111;*/
-/*    color: #F4E3B6;*/
-/*    font-family: 'Inter', sans-serif;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*    border-color: #121111;*/
-/*    border-radius: 50%;*/
-/*}*/
