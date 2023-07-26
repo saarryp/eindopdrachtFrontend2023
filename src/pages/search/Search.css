@@ -14,11 +14,10 @@
 
 .form-search-size {
     margin: 50px;
-    width: 80%; /* Adjust the width as needed */
-    max-width: 600px; /* Add max-width to limit the width */
+    width: 80%;
+    max-width: 600px;
     border: 2px solid orange;
 }
-
 
 .form-search-size form{
     display: flex;
@@ -57,19 +56,35 @@
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
-    padding: 0;
+    padding: 50px;
     font-family: 'Inter', sans-serif;
-    border: 2px dotted greenyellow;
+    /*border: 2px dotted greenyellow;*/
+    overflow-x: auto;
+    margin: 0;
 }
 
 .ul-position li {
-    width: calc(20% - 20px);
-     margin: 10px;
-    border: 3px solid black;
-    background-color: #FAF8E7;
+    flex-basis: calc(20% - 20px);
+    margin: 10px;
+    background-color: darkgrey;
     font-family: 'Inter', sans-serif;
     color: #121111;
     list-style: none;
+    border: 3px solid #B89437;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .ul-position li {
+        flex-basis: calc(33.33% - 20px); /* Each album takes 33.33% width with 10px margin on each side */
+    }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+    .ul-position li {
+        flex-basis: calc(50% - 20px); /* Each album takes 50% width with 10px margin on each side */
+    }
 }
 
 .list-item {
@@ -86,9 +101,9 @@
 }
 
 .list-item .artist {
-    font-size: 14px;
+    font-size: 50px;
     font-family: 'Inter', sans-serif;
-    color: #B89437;
+    color: black;
 }
 
 .list-item .title {
@@ -96,11 +111,37 @@
     color: blueviolet;
 }
 
+.track-list {
+    /*list-style: none;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    /*border: 2px solid yellow;*/
+    color: #121111;
+}
+
+.track-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+.track-list li a:hover {
+    color: #F4E3B6;
+}
+
+.track-list li {
+    padding: 5px;
+    white-space: nowrap;
+    color: #121111;
+}
+
 h2{
-    font-size: 20px;
+    font-size: 25px;
     color: black;
     padding-bottom: 10px;
-    background-color: #FAF8E7;
-    border: 2px solid red;
+    background-color: darkgrey;
+    border: 2px dotted black;
 }
 
