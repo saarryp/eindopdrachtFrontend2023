@@ -1,5 +1,7 @@
 .container-photo-search-engine {
     display: flex;
+    flex-direction: column;
+    align-content: center;
     background-image: url("../../assets/ErykahBadu.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,19 +9,179 @@
     min-height: 90vh;
     position: relative;
     flex-basis: auto;
+    /*border: 2px solid mediumpurple;*/
 }
 
+.form-search-size {
+    margin: 50px;
+    width: 80%;
+    max-width: 600px;
+    /*border: 2px solid orange;*/
+}
 
-/*.search-button {*/
-/*    font-size: 16px;*/
-/*    background-color: #121111;*/
-/*    color: #F4E3B6;*/
-/*    font-family: 'Inter', sans-serif;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*    border-color: #121111;*/
-/*    border-radius: 50%;*/
-/*}*/
+.form-search-size form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+ .input-field {
+     height:60px;
+     font-family: 'Inter', sans-serif;
+     font-size: 25px;
+     width: 100%;
+     max-width: 350px;
+     margin-left: 20px;
+ }
+ .spinner-container {
+     display: flex;
+     flex-direction: row;
+     align-items: flex-end;
+     margin-bottom: 25px;
+     /*border: 2px dotted deeppink;*/
+ }
+
+.search-button {
+    margin-top: 2px;
+    margin-right: 50px;
+    padding: 15px 30px;
+    background-color: #B89437;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    width: 100%;
+    max-width: 200px;
+    border: none !important;
+    /*border: 2px dotted yellow;*/
+}
+
+.ul-position {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 50px;
+    font-family: 'Inter', sans-serif;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.position-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.ul-position li {
+    flex-basis: calc(20% - 20px);
+    margin: 10px;
+    background-color: darkgrey;
+    font-family: 'Inter', sans-serif;
+    color: #121111;
+    list-style: none;
+    /*border: 3px solid #B89437;*/
+}
+
+.ul-albums {
+    /*border: 2px solid greenyellow;*/
+    padding: 50px;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.album-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.track-name {
+    font-size: 14px;
+    border: none;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .ul-position li {
+        flex-basis: calc(33.33% - 20px);
+    }
+}
+
+/* Media query for even smaller screens */
+@media screen and (max-width: 480px) {
+    .ul-position li {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.list-item .artist {
+    font-family: 'Inter', sans-serif;
+    color: black;
+}
+
+.track-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    color: #121111;
+}
+
+.track-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+.track-list li a:hover {
+    color: #F4E3B6;
+}
+
+.track-list li {
+    padding: 2px;
+    white-space: nowrap;
+    color: #121111;
+}
+
+.title {
+    font-size: 21px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 40px;
+    color: black;
+    padding-bottom: 10px;
+    background-color: darkgrey;
+    border: 2px dotted black;
+}
+
+.tracks-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    color: black;
+}
+

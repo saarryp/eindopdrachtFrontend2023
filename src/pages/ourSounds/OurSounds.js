@@ -12,24 +12,11 @@ export default function OurSounds() {
 
 
     async function getApiTracks() {
-        const options = {
-            method: 'GET',
-            url: "",
-            params: {
-                ids: '4WNcduiCmDNfmTEz7JvmLv'
-            },
-            headers: {
-                'X-RapidAPI-Key': '19f26934fcmsh367906a66bf7580p16dde5jsn3f029566ed3a',
-                'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-            }
-        };
-
-        try {
-            const response = await axios.request(options);
-            console.log(response.data);
-        } catch (error) {
+       try {const response = await axios.get('http://ws.audioscrobbler.com/2.0/?method=album.search&album=${query}&api_key=${token}&format=json`;\n' +
+            '            const response = await axios.get(url);');console.log(response.data);
+       } catch (error) {
             console.error(error);
-        }
+    }
     }
 
     return (
