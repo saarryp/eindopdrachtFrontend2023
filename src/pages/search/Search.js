@@ -47,6 +47,7 @@ export default function Search() {
             }
 
             setResults({ albummatches: { album: uniqueAlbums } });
+            setQuery('')
         } catch (err) {
             console.log(err);
         } finally {
