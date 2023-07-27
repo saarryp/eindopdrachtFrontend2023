@@ -9,14 +9,14 @@
     min-height: 90vh;
     position: relative;
     flex-basis: auto;
-    border: 2px solid mediumpurple;
+    /*border: 2px solid mediumpurple;*/
 }
 
 .form-search-size {
     margin: 50px;
     width: 80%;
     max-width: 600px;
-    border: 2px solid orange;
+    /*border: 2px solid orange;*/
 }
 
 .form-search-size form{
@@ -36,9 +36,17 @@
      max-width: 350px;
      margin-left: 20px;
  }
+ .spinner-container {
+     display: flex;
+     flex-direction: row;
+     align-items: flex-end;
+     margin-bottom: 25px;
+     /*border: 2px dotted deeppink;*/
+ }
 
 .search-button {
-    margin-top: 10px;
+    margin-top: 2px;
+    margin-right: 50px;
     padding: 15px 30px;
     background-color: #B89437;
     color: white;
@@ -48,7 +56,8 @@
     font-size: 25px;
     width: 100%;
     max-width: 200px;
-    border: 2px dotted yellow;
+    border: none !important;
+    /*border: 2px dotted yellow;*/
 }
 
 .ul-position {
@@ -81,12 +90,12 @@
 }
 
 .ul-albums {
-    border: 2px solid greenyellow;
+    /*border: 2px solid greenyellow;*/
     padding: 50px;
     overflow-x: auto;
-    display: flex; /* Center albums horizontally */
-    flex-wrap: wrap; /* Allow albums to wrap if needed */
-    justify-content: center; /* Center albums horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .album-info {
@@ -94,18 +103,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-
-.album-name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
+    margin-top: 20px;
 }
 
 .track-name {
@@ -130,18 +128,15 @@
 .list-item {
     display: flex;
     flex-direction: row;
-    background-color: #FAF8E7;
     padding: 10px;
 }
 
 .list-item .artist {
-    /*font-size: 50px;*/
     font-family: 'Inter', sans-serif;
     color: black;
 }
 
 .track-list {
-    /*list-style: none;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -160,25 +155,29 @@
 }
 
 .track-list li {
-    padding: 5px;
+    padding: 2px;
     white-space: nowrap;
     color: #121111;
+}
+
+.title {
+    font-size: 21px;
 }
 
 h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    font-size: 35px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 40px;
     color: black;
     padding-bottom: 10px;
     background-color: darkgrey;
     border: 2px dotted black;
 }
 
-.no-tracks{
+.tracks-not-found {
     display: flex;
     justify-content: center;
     align-items: center;
