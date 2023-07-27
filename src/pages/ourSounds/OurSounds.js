@@ -12,12 +12,11 @@ export default function OurSounds() {
 
 
     async function getApiTracks() {
-        try {
-            const response = await axios.get('https://api.discogs.com');
-            console.log(response.data);
-        } catch (error) {
+       try {const response = await axios.get('http://ws.audioscrobbler.com/2.0/?method=album.search&album=${query}&api_key=${token}&format=json`;\n' +
+            '            const response = await axios.get(url);');console.log(response.data);
+       } catch (error) {
             console.error(error);
-        }
+    }
     }
 
     return (

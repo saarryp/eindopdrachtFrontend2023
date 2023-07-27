@@ -58,9 +58,16 @@
     list-style: none;
     padding: 50px;
     font-family: 'Inter', sans-serif;
-    /*border: 2px dotted greenyellow;*/
     overflow-x: auto;
     margin: 0;
+}
+
+.position-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .ul-position li {
@@ -70,20 +77,53 @@
     font-family: 'Inter', sans-serif;
     color: #121111;
     list-style: none;
-    border: 3px solid #B89437;
+    /*border: 3px solid #B89437;*/
+}
+
+.ul-albums {
+    border: 2px solid greenyellow;
+    padding: 50px;
+    overflow-x: auto;
+    display: flex; /* Center albums horizontally */
+    flex-wrap: wrap; /* Allow albums to wrap if needed */
+    justify-content: center; /* Center albums horizontally */
+}
+
+.album-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+.album-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.track-name {
+    font-size: 14px;
+    border: none;
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     .ul-position li {
-        flex-basis: calc(33.33% - 20px); /* Each album takes 33.33% width with 10px margin on each side */
+        flex-basis: calc(33.33% - 20px);
     }
 }
 
 /* Media query for even smaller screens */
 @media screen and (max-width: 480px) {
     .ul-position li {
-        flex-basis: calc(50% - 20px); /* Each album takes 50% width with 10px margin on each side */
+        flex-basis: calc(50% - 20px);
     }
 }
 
@@ -92,23 +132,12 @@
     flex-direction: row;
     background-color: #FAF8E7;
     padding: 10px;
-    border: 2px solid lightgreen;
-}
-
-.list-item .image {
-    width: 30px;
-    margin: 12px;
 }
 
 .list-item .artist {
-    font-size: 50px;
+    /*font-size: 50px;*/
     font-family: 'Inter', sans-serif;
     color: black;
-}
-
-.list-item .title {
-    font-size: 8px;
-    color: blueviolet;
 }
 
 .track-list {
@@ -118,7 +147,6 @@
     justify-content: space-between;
     padding: 0;
     margin: 0;
-    /*border: 2px solid yellow;*/
     color: #121111;
 }
 
@@ -137,11 +165,24 @@
     color: #121111;
 }
 
-h2{
-    font-size: 25px;
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 35px;
     color: black;
     padding-bottom: 10px;
     background-color: darkgrey;
     border: 2px dotted black;
+}
+
+.no-tracks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    color: black;
 }
 

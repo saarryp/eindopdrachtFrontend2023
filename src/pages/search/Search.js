@@ -95,20 +95,20 @@ export default function Search() {
                     </button>
                 </form>
                 <div>
-                    <ul className="ul-position">
+                    <ul className="ul-position ul-albums">
                         {results.albummatches.album.map((album) => (
-                            <li key={`${album.mbid}-${album.name}`}  onClick={() => handleAlbumClick(album.mbid)}>
-                                <span>
-                                    {album.image && <img src={album.image[2]["#text"]} alt={album.name} />}
-                                </span>
-                                <h2 className="artist">{album.artist}</h2>
-                                <p className="title">{album.name}</p>
-                                {album.tracks && album.tracks.length > 0 ? (
+                            <li key={`${album.mbid}-${album.name}`} onClick={() => handleAlbumClick(album.mbid)}>
+                                <div className="album-info">
+                                    <span>
+                                    {album.image && <img src={album.image[3]["#text"]} alt={album.name} />}
+                                    </span>
+                                    <h2 className="artist">{album.artist}</h2>
+                                    <p className="title">{album.name}</p>
+                                </div>
+                                    {album.tracks && album.tracks.length > 0 ? (
                                     <ul className="track-list">
                                         {album.tracks.map((track) => (
-                                            <li key={track.name}>
-                                                <a href={track.url} target="_blank" rel="noreferrer"> {track.name}</a>
-                                            </li>
+                                            <li key={track.name}> <a href={track.url} target="_blank" rel="noreferrer"> {track.name}</a></li>
                                         ))}
                                     </ul>
                                 ) : (
@@ -116,6 +116,27 @@ export default function Search() {
                                 )}
                             </li>
                         ))}
+
+                        {/*{results.albummatches.album.map((album) => (*/}
+                        {/*    <li key={`${album.mbid}-${album.name}`}  onClick={() => handleAlbumClick(album.mbid)}>*/}
+                        {/*        <span className="position-album">*/}
+                        {/*            {album.image && <img src={album.image[3]["#text"]} alt={album.name} />}*/}
+                        {/*        </span>*/}
+                        {/*        <h2 className="artist">{album.artist}</h2>*/}
+                        {/*        <p className="title album-name">{album.name}</p>*/}
+                        {/*        {album.tracks && album.tracks.length > 0 ? (*/}
+                        {/*            <ul className="track-list">*/}
+                        {/*                {album.tracks.map((track) => (*/}
+                        {/*                    <li key={track.name}>*/}
+                        {/*                        <a href={track.url} target="_blank" rel="noreferrer" className="track-name"> {track.name}</a>*/}
+                        {/*                    </li>*/}
+                        {/*                ))}*/}
+                        {/*            </ul>*/}
+                        {/*        ) : (*/}
+                        {/*            <p className="no-tracks">No tracks found for this album.</p>*/}
+                        {/*        )}*/}
+                        {/*    </li>*/}
+                        {/*))}*/}
                     </ul>
                 </div>
             </div>
