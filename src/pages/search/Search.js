@@ -1,5 +1,5 @@
 import "./Search.css";
-import React, { useState } from "react";
+import React, { useState,} from "react";
 import axios from "axios";
 import Spinner from "../../components/spinner/Spinner";
 
@@ -11,6 +11,7 @@ export default function Search() {
         },
     });
     const [loading,setLoading] = useState(false);
+    // const [likedTracks, setLikedTracks] = useState([])
 
     const fetchAlbumDetails = async (mbid) => {
         try {
@@ -23,6 +24,18 @@ export default function Search() {
             return null;
         }
     };
+
+    // useEffect(() => {
+    //     const storedLikedSongs = localStorage.getItem('likedTracks);
+    //     if (storedLikedSongs){
+    //         setLikedTracks(JSON.parse(storedLikedSongs));
+    //     }
+    // }, []);
+    //
+    // useEffect(() => {
+    //     localStorage.setItem('likedTracks', JSON.stringify(likedTracks));
+    // }, [likedTracks]);
+
 
     let handleSubmit = async (e) => {
         e.preventDefault();
