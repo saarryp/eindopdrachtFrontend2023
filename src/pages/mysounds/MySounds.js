@@ -21,8 +21,19 @@ export default function MySounds() {
                 <ol>
                     {myFavorites.length > 0 ? (
                         myFavorites.map((favorite, index) => (
-                            <li key={index} className="list-items">
-                                {favorite.name} <button onClick={() => handleRemoveFavorite(favorite)}>delete</button>
+                            <li key={index} className="list-items">{index + 1}.
+                                <a
+                                    href={`https://www.last.fm/search?q=${encodeURIComponent(favorite.name)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {favorite.name}
+                                </a>{" "}
+                                <div className="border-for-delete">
+                                <button className="delete-button" onClick={() => handleRemoveFavorite(favorite)}>
+                                    delete song
+                                </button>
+                                </div>
                             </li>
                         ))
                     ) : (
