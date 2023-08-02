@@ -7,6 +7,7 @@ export default function MySounds() {
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
         setMyFavorites(storedFavorites);
+        console.log(storedFavorites)
     }, []);
 
     const handleRemoveFavorite = (song) => {
@@ -27,7 +28,8 @@ export default function MySounds() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {favorite.name}
+                                    <p>{favorite.name }</p>
+                                    <p>{favorite.artist.name}</p>
                                 </a>{" "}
                                 <div className="border-for-delete">
                                 <button className="delete-button" onClick={() => handleRemoveFavorite(favorite)}>
