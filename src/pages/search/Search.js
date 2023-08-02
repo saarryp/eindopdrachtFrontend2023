@@ -28,10 +28,7 @@ export default function Search() {
     const favoriteSong = (song) => {
         console.log(song);
 
-        // Get the current liked songs from localStorage
         const currentFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-
-        // Check if the song is already in the liked songs list
         const isSongLiked = currentFavorites.includes(song);
 
         // Check if the number of favorites exceeds 10
@@ -51,9 +48,6 @@ export default function Search() {
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
         console.log(updatedFavorites);
     };
-
-
-
 
 
     let handleSubmit = async (e) => {
@@ -125,14 +119,16 @@ export default function Search() {
                                     {album.tracks && album.tracks.length > 0 ? (
                                         <ul className="track-list">
                                             {album.tracks.map((track) => (
-                                                <>
-                                                <li key={track.name}> <a href={track.url} target="_blank" rel="noreferrer"> {track.name}</a></li>
-                                                <div>
-                                                <button onClick={() => favoriteSong(track)}>
-                                                    like
-                                                </button>
-                                                </div>
-                                                </>
+                                                <li key={track.name}>
+                                                    <span className="container-tracks-like">
+                                                        <a href={track.url} target="_blank" rel="noreferrer">
+                                                            {track.name}
+                                                        </a>
+                                                    </span>
+                                                    <button className="like-button" onClick={() => favoriteSong(track.name)}>
+                                                      like
+                                                    </button>
+                                                </li>
                                             ))}
                                         </ul>
                                     ) : (
