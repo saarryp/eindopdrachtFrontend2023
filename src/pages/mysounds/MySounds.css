@@ -6,7 +6,28 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    animation: changeBackgroundColor 20s infinite;
 }
+
+/* Define the keyframes */
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: #FAF8E7;
+    }
+    30% {
+        background-color: lightgoldenrodyellow;
+    }
+    50% {
+        background-color: lightyellow;
+    }
+    75% {
+        background-color: lightgoldenrodyellow;
+    }
+    90% {
+        background-color: #F4E3B6;
+    }
+}
+
 
 ol {
     gap: 20px;
