@@ -1,44 +1,61 @@
-import axios from "axios";
+
 import './OurSounds.css'
-
-export default function OurSounds() {
-
-    /*
-    * sounds ophalen met API
-    * we halen de return uit elkaar met 10 nummers
-    * dat stoppen we in de pagina
-    * */
+import React, {useEffect, useState} from "react";
 
 
+export default function OurSound() {
+    const [ourFavorites, setOurFavorites] = useState([]);
 
-    async function getApiTracks() {
-       try {const response = await axios.get('http://ws.audioscrobbler.com/2.0/?method=album.search&album=${query}&api_key=${token}&format=json`;\n' +
-            '            const response = await axios.get(url);');console.log(response.data);
-       } catch (error) {
-            console.error(error);
-    }
-    }
+    useEffect(() => {
+        // Get the favorites from localStorage (if any) or initialize with an empty array
+        const storedFavorites = JSON.parse(localStorage.getItem('ourFavorites') || '[]');
+        setOurFavorites(storedFavorites);
+    }, []);
+
+    // Function to add a track to the "OurSound" page
+    const addTrackToOurSound = (track) => {
+        const isTrackInList = ourFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
+
+        // Check if the number of favorites exceeds 10
+        if (ourFavorites.length >= 10) {
+            alert('You have already added 10 favorite songs. Remove songs from the list.');
+            return;
+        }
+
+        if (!isTrackInList) {
+            const updatedFavorites = [...ourFavorites, track];
+            setOurFavorites(updatedFavorites);
+            // Update the liked songs in localStorage
+            localStorage.setItem('ourFavorites', JSON.stringify(updatedFavorites));
+        }
+    };
+
+    // Function to remove a track from the "OurSound" page
+    const removeTrackFromOurSound = (track) => {
+        const updatedFavorites = ourFavorites.filter((favorite) => (favorite.name !== track.name || favorite.artist !== track.artist));
+        setOurFavorites(updatedFavorites);
+        // Update the liked songs in localStorage
+        localStorage.setItem('ourFavorites', JSON.stringify(updatedFavorites));
+    };
 
     return (
-        <>
-            <div className="background-container">
-                <ol>
-                    <li className='list-items'> 1</li>
-                    <li className="list-items"> 2</li>
-                    <li className='list-items'> 3</li>
-                    <li className='list-items'> 4</li>
-                    <li className='list-items'> 5</li>
-                    <li className='list-items'> 6</li>
-                    <li className='list-items'> 7</li>
-                    <li className='list-items'> 8</li>
-                    <li className='list-items'> 9</li>
-                    <li className='list-items'> 10</li>
-                </ol>
-                <div className="position-button">
-                    <button className="button-logout" onClick={getApiTracks}>uitloggen</button>
-                </div>
-            </div>
-        </>
-
-    )
+        <div>
+            <h1>OurSound</h1>
+            <ul>
+                {ourFavorites.length > 0 ? (
+                    ourFavorites.map((favorite, index) => (
+                        <li key={index}>
+                            <p>{favorite.name}</p>
+                            <p>{favorite.artist}</p>
+                            <button onClick={() => removeTrackFromOurSound(favorite)}>Remove</button>
+                        </li>
+                    ))
+                ) : (
+                    <p>No favorites found.</p>
+                )}
+            </ul>
+            <button onClick={() => addTrackToOurSound({ name: 'New Track', artist: 'New Artist' })}>Add New Track
+            </button>
+        </div>
+    );
 }
