@@ -25,29 +25,55 @@ export default function Search() {
         }
     };
 
-    const favoriteSong = (song) => {
-        console.log(song);
 
-        const currentFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-        const isSongLiked = currentFavorites.includes(song);
+    const favoriteSong = (track) => {
+        console.log(track);
+
+        const currentFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        const isSongLiked = currentFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
 
         // Check if the number of favorites exceeds 10
         if (currentFavorites.length >= 10) {
-            alert("You have more than 10 favorite songs. Delete song in your page");
+            alert('You have more than 10 favorite songs. Delete songs in your MySounds page.');
             return;
         }
 
         let updatedFavorites;
         if (isSongLiked) {
-            updatedFavorites = currentFavorites.filter((item) => item !== song);
+            updatedFavorites = currentFavorites.filter((favorite) => (favorite.name !== track.name || favorite.artist !== track.artist));
         } else {
-            updatedFavorites = [...currentFavorites, song];
+            updatedFavorites = [...currentFavorites, track];
         }
 
         // Update the liked songs in localStorage
-        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
         console.log(updatedFavorites);
     };
+
+
+    // const favoriteSong = (song) => {
+    //     console.log(song);
+    //
+    //     const currentFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    //     const isSongLiked = currentFavorites.includes(song);
+    //
+    //     // Check if the number of favorites exceeds 10
+    //     if (currentFavorites.length >= 10) {
+    //         alert("You have more than 10 favorite songs. Delete song in your page");
+    //         return;
+    //     }
+    //
+    //     let updatedFavorites;
+    //     if (isSongLiked) {
+    //         updatedFavorites = currentFavorites.filter((item) => item !== song);
+    //     } else {
+    //         updatedFavorites = [...currentFavorites, song];
+    //     }
+    //
+    //     // Update the liked songs in localStorage
+    //     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    //     console.log(updatedFavorites);
+    // };
 
 
     let handleSubmit = async (e) => {
@@ -66,8 +92,8 @@ export default function Search() {
                     uniqueMbidSet.add(album.mbid);
                     const albumDetails = await fetchAlbumDetails(album.mbid);
                     if (albumDetails) {
-                        album.tracks = albumDetails.album.tracks.track;
-                    }
+                       album.tracks = albumDetails.album.tracks.track;
+                     }
                     uniqueAlbums.push(album);
                 }
             }
@@ -125,7 +151,7 @@ export default function Search() {
                                                             {track.name}
                                                         </a>
                                                     </span>
-                                                    <button className="like-button" onClick={() => favoriteSong(track.name)}>
+                                                    <button className="like-button" onClick={() => favoriteSong(track)}>
                                                       like
                                                     </button>
                                                 </li>

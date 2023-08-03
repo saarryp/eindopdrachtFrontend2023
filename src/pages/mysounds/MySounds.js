@@ -16,7 +16,7 @@ export default function MySounds() {
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     };
 
-        return (
+    return (
         <>
             <div className="background-container">
                 <ol>
@@ -32,9 +32,9 @@ export default function MySounds() {
                                     <p>{favorite.artist.name}</p>
                                 </a>{" "}
                                 <div className="border-for-delete">
-                                <button className="delete-button" onClick={() => handleRemoveFavorite(favorite)}>
-                                    delete song
-                                </button>
+                                    <button className="delete-button" onClick={() => handleRemoveFavorite(favorite)}>
+                                        delete song
+                                    </button>
                                 </div>
                             </li>
                         ))
@@ -47,5 +47,5 @@ export default function MySounds() {
                 </div>
             </div>
         </>
-        );
-        }
+    );
+}
