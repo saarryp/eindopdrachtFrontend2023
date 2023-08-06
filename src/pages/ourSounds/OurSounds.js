@@ -4,7 +4,6 @@ import axios from "axios";
 import SearchResults from "../../components/serachresults/SearchResults";
 import Spinner from "../../components/spinner/Spinner";
 
-
 export default function OurSound() {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState({
@@ -15,7 +14,7 @@ export default function OurSound() {
     const [ourFavorites, setOurFavorites] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const handleSearch = async (e) => {
+    const fetchAlbumDetails = async (e) => {
         e.preventDefault();
         setLoading(true);
 
@@ -26,25 +25,35 @@ export default function OurSound() {
 
             const uniqueAlbums = [];
             const uniqueMbidSet = new Set();
+
             for (const album of response.data.results.albummatches.album) {
                 if (!uniqueMbidSet.has(album.mbid)) {
                     uniqueMbidSet.add(album.mbid);
-                    const albumDetails = await handleSearch(album.mbid);
+                    const albumDetails = await fetchAlbumDetails(album.mbid);
                     if (albumDetails) {
                         album.tracks = albumDetails.album.tracks.track;
                     }
                     uniqueAlbums.push(album);
                 }
             }
+
+            setSearchResults({ albummatches: { album: uniqueAlbums } });
         } catch (err) {
             console.log(err);
-            setSearchResults([]);
+            setSearchResults({
+                albummatches: {
+                    album: [],
+                },
+            });
         } finally {
-        setLoading(false);
-    }
-};
+            setLoading(false);
+        }
+    };
+
     const addTrackToOurSound = (track) => {
-        const isTrackInList = ourFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
+        const isTrackInList = ourFavorites.some(
+            (favorite) => favorite.name === track.name && favorite.artist === track.artist
+        );
 
         // Check if the number of favorites exceeds 10
         if (ourFavorites.length >= 10) {
@@ -60,29 +69,33 @@ export default function OurSound() {
     };
 
     const removeTrackFromOurSound = (track) => {
-        const updatedFavorites = ourFavorites.filter((favorite) => (favorite.name !== track.name || favorite.artist !== track.artist));
+        const updatedFavorites = ourFavorites.filter(
+            (favorite) => favorite.name !== track.name || favorite.artist !== track.artist
+        );
         setOurFavorites(updatedFavorites);
         // Update the liked songs in localStorage
         localStorage.setItem('ourFavorites', JSON.stringify(updatedFavorites));
     };
 
+    console.log("Results:", searchResults)
+
     return (
         <div>
             <h1>OurSound</h1>
-            <div className="container-photo-search-engine">
-                <div className="position-button-and-results">
-                    <form className="form-search-size" onSubmit={handleSearch}>
-                       <div>
-                           <input
-                               className="input-field"
-                               type = "text"
-                               value={searchQuery}
-                               onChange={(e) => setSearchQuery(e.target.value)}
-                               />
-                           <button className="search-button" type="submit">
-                               Search
-                           </button>
-                       </div> {/* ... (Form inputs) */}
+            <div className="container-our-sounds">
+                <div>
+                    <form className="form-search-size" onSubmit={fetchAlbumDetails}>
+                        <div>
+                            <input
+                                className="input-field"
+                                type = "text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                            <button className="search-button" type="submit">
+                                Search
+                            </button>
+                        </div> {/* ... (Form inputs) */}
                     </form>
                     <div>
                         {loading ? (
@@ -92,6 +105,25 @@ export default function OurSound() {
                         )}
                     </div>
                 </div>
+                <ol>
+                    {ourFavorites.length > 0 ? (
+                        ourFavorites.map((favorite, index) => (
+                            <li key={index} className="list-items">{index + 1}.
+                                <a
+                                    href={`https://www.last.fm/search?q=${encodeURIComponent(favorite.name)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <p>{favorite.name }</p>
+                                    <p>{favorite.artist.name}</p>
+                                </a>{" "}
+                                <button onClick={() => removeTrackFromOurSound(favorite)}>Remove</button>
+                            </li>
+                        ))
+                    ) : (
+                        <p className="list-items">No favorites found.</p>
+                    )}
+                </ol>
             </div>
         </div>
     );

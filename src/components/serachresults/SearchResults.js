@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function SearchResults({ results, onAddToFavorites }) {
+
     return (
         <ul className="ul-position ul-albums">
             {results.albummatches.album.map((album) => (
