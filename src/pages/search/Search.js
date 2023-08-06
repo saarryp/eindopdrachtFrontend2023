@@ -3,6 +3,7 @@ import "./Search.css";
 import React, {useState} from "react";
 import axios from "axios";
 import Spinner from "../../components/spinner/Spinner";
+import SearchResults from "../../components/serachresults/SearchResults";
 
 export default function Search() {
     const [query, setQuery] = useState('');
@@ -11,7 +12,7 @@ export default function Search() {
             album: [],
         },
     });
-    const [loading,setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const fetchAlbumDetails = async (mbid) => {
         try {
@@ -51,31 +52,6 @@ export default function Search() {
     };
 
 
-    // const favoriteSong = (song) => {
-    //     console.log(song);
-    //
-    //     const currentFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    //     const isSongLiked = currentFavorites.includes(song);
-    //
-    //     // Check if the number of favorites exceeds 10
-    //     if (currentFavorites.length >= 10) {
-    //         alert("You have more than 10 favorite songs. Delete song in your page");
-    //         return;
-    //     }
-    //
-    //     let updatedFavorites;
-    //     if (isSongLiked) {
-    //         updatedFavorites = currentFavorites.filter((item) => item !== song);
-    //     } else {
-    //         updatedFavorites = [...currentFavorites, song];
-    //     }
-    //
-    //     // Update the liked songs in localStorage
-    //     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-    //     console.log(updatedFavorites);
-    // };
-
-
     let handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -108,20 +84,20 @@ export default function Search() {
     };
 
 
-    const handleAlbumClick = async (mbid) => {
-        const albumDetails = await fetchAlbumDetails(mbid);
-        console.log(albumDetails);
-    };
-
+    // const handleAlbumClick = async (mbid) => {
+    //     const albumDetails = await fetchAlbumDetails(mbid);
+    //     console.log(albumDetails);
+    // };
     return (
         <div className="container-photo-search-engine">
             <div className="position-button-and-results">
                 <form className="form-search-size" onSubmit={handleSubmit}>
                     <div className="spinner-container">
-                        <input className="input-field"
-                               type="text"
-                               value={query}
-                               onChange={(e) => setQuery(e.target.value)}
+                        <input
+                            className="input-field"
+                            type="text"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
                         />
                         <button className="search-button" type="submit">
                             Search
@@ -132,40 +108,16 @@ export default function Search() {
                     {loading ? (
                         <Spinner />
                     ) : (
-                        <ul className="ul-position ul-albums">
-                            {results.albummatches.album.map((album) => (
-                                <li key={`${album.mbid}-${album.name}`} onClick={() => handleAlbumClick(album.mbid)}>
-                                    <div className="album-info">
-                                    <span>
-                                    {album.image && <img src={album.image[3]["#text"]} alt={album.name} />}
-                                    </span>
-                                        <h2 className="artist">{album.artist}</h2>
-                                        <p className="title">{album.name}</p>
-                                    </div>
-                                    {album.tracks && album.tracks.length > 0 ? (
-                                        <ul className="track-list">
-                                            {album.tracks.map((track) => (
-                                                <li key={track.name}>
-                                                    <span className="container-tracks-like">
-                                                        <a href={track.url} target="_blank" rel="noreferrer">
-                                                            {track.name}
-                                                        </a>
-                                                    </span>
-                                                    <button className="like-button" onClick={() => favoriteSong(track)}>
-                                                      like
-                                                    </button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <p className="tracks-not-found">No tracks found for this album.</p>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
+                        <SearchResults results={results} onAddToFavorites={favoriteSong} />
                     )}
                 </div>
             </div>
         </div>
     );
 }
+
+
+
+
+
+

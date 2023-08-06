@@ -1,18 +1,48 @@
-
-import './OurSounds.css'
-import React, {useEffect, useState} from "react";
+import './OurSounds.css';
+import React, { useState } from "react";
+import axios from "axios";
+import SearchResults from "../../components/serachresults/SearchResults";
+import Spinner from "../../components/spinner/Spinner";
 
 
 export default function OurSound() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState({
+        albummatches: {
+            album: []
+        },
+    });
     const [ourFavorites, setOurFavorites] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        // Get the favorites from localStorage (if any) or initialize with an empty array
-        const storedFavorites = JSON.parse(localStorage.getItem('ourFavorites') || '[]');
-        setOurFavorites(storedFavorites);
-    }, []);
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        setLoading(true);
 
-    // Function to add a track to the "OurSound" page
+        try {
+            const token = process.env.REACT_APP_LASTFM_TOKEN;
+            const url = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${searchQuery}&api_key=${token}&format=json`;
+            const response = await axios.get(url);
+
+            const uniqueAlbums = [];
+            const uniqueMbidSet = new Set();
+            for (const album of response.data.results.albummatches.album) {
+                if (!uniqueMbidSet.has(album.mbid)) {
+                    uniqueMbidSet.add(album.mbid);
+                    const albumDetails = await handleSearch(album.mbid);
+                    if (albumDetails) {
+                        album.tracks = albumDetails.album.tracks.track;
+                    }
+                    uniqueAlbums.push(album);
+                }
+            }
+        } catch (err) {
+            console.log(err);
+            setSearchResults([]);
+        } finally {
+        setLoading(false);
+    }
+};
     const addTrackToOurSound = (track) => {
         const isTrackInList = ourFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
 
@@ -21,7 +51,6 @@ export default function OurSound() {
             alert('You have already added 10 favorite songs. Remove songs from the list.');
             return;
         }
-
         if (!isTrackInList) {
             const updatedFavorites = [...ourFavorites, track];
             setOurFavorites(updatedFavorites);
@@ -30,7 +59,6 @@ export default function OurSound() {
         }
     };
 
-    // Function to remove a track from the "OurSound" page
     const removeTrackFromOurSound = (track) => {
         const updatedFavorites = ourFavorites.filter((favorite) => (favorite.name !== track.name || favorite.artist !== track.artist));
         setOurFavorites(updatedFavorites);
@@ -41,21 +69,30 @@ export default function OurSound() {
     return (
         <div>
             <h1>OurSound</h1>
-            <ul>
-                {ourFavorites.length > 0 ? (
-                    ourFavorites.map((favorite, index) => (
-                        <li key={index}>
-                            <p>{favorite.name}</p>
-                            <p>{favorite.artist}</p>
-                            <button onClick={() => removeTrackFromOurSound(favorite)}>Remove</button>
-                        </li>
-                    ))
-                ) : (
-                    <p>No favorites found.</p>
-                )}
-            </ul>
-            <button onClick={() => addTrackToOurSound({ name: 'New Track', artist: 'New Artist' })}>Add New Track
-            </button>
+            <div className="container-photo-search-engine">
+                <div className="position-button-and-results">
+                    <form className="form-search-size" onSubmit={handleSearch}>
+                       <div>
+                           <input
+                               className="input-field"
+                               type = "text"
+                               value={searchQuery}
+                               onChange={(e) => setSearchQuery(e.target.value)}
+                               />
+                           <button className="search-button" type="submit">
+                               Search
+                           </button>
+                       </div> {/* ... (Form inputs) */}
+                    </form>
+                    <div>
+                        {loading ? (
+                            <Spinner />
+                        ) : (
+                            <SearchResults results={searchResults} onAddToFavorites={addTrackToOurSound} />
+                        )}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
