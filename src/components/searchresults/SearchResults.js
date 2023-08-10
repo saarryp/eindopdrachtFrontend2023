@@ -44,7 +44,7 @@
 
 import React from "react";
 
-export default function SearchResults({ results, onAddToFavorites }) {
+export default function SearchResults({ results, onAddToFavorites, handleAdminAction }) {
 
     return (
         <ul className="ul-position ul-albums">
@@ -66,8 +66,11 @@ export default function SearchResults({ results, onAddToFavorites }) {
                                         <a href={track.url} target="_blank" rel="noreferrer">
                                             {track.name}
                                         </a>
-                                        <button className="admin-button">admin</button>
+                                        <button className="admin-button" onClick={() => handleAdminAction(track)}>
+                                            admin
+                                        </button>
                                     </div>
+
                                     <button className="like-button" onClick={() => onAddToFavorites(track)}>
                                         Like
                                     </button>
