@@ -60,12 +60,14 @@ export default function SearchResults({ results, onAddToFavorites }) {
                     {album.tracks && album.tracks.length > 0 ? (
                         <ul className="track-list">
                             {album.tracks.map((track) => (
-                                <li key={track.name}>
-                                    <span className="container-tracks-like">
+                                <li key={track.name} className="track-entry">
+                                    <div className="list-item">
+
                                         <a href={track.url} target="_blank" rel="noreferrer">
                                             {track.name}
                                         </a>
-                                    </span>
+                                        <button className="admin-button">admin</button>
+                                    </div>
                                     <button className="like-button" onClick={() => onAddToFavorites(track)}>
                                         Like
                                     </button>

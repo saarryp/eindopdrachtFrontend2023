@@ -81,7 +81,7 @@ ol {
     align-self: end;
     justify-self: flex-end;
     /*padding-left: 400px;*/
-    border: 2px dotted dodgerblue;
+    /*border: 2px dotted dodgerblue;*/
 }
 
 .delete-button{
