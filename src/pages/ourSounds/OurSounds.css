@@ -1,3 +1,25 @@
+/*.background-container {*/
+/*    background-color: #FAF8E7;*/
+/*    margin-top: 35px;*/
+/*    margin-bottom: 35px;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: flex-start;*/
+/*}*/
+
+/*ol {*/
+/*    gap: 20px;*/
+/*    list-style-type: none;*/
+/*    color: #121111;*/
+/*    padding-left: 20px;*/
+/*}*/
+
+/*.list-items{*/
+/*    padding: 25px;*/
+
+/*}*/
+
 .background-container {
     background-color: #FAF8E7;
     margin-top: 35px;
@@ -6,18 +28,26 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    animation: changeBackgroundColor 20s infinite;
 }
 
-ol {
-    gap: 20px;
-    list-style-type: none;
-    color: #121111;
-    padding-left: 20px;
-}
-
-.list-items{
-    padding: 25px;
-
+/* Define the keyframes */
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: #FAF8E7;
+    }
+    30% {
+        background-color: lightgoldenrodyellow;
+    }
+    50% {
+        background-color: lightyellow;
+    }
+    75% {
+        background-color: lightgoldenrodyellow;
+    }
+    90% {
+        background-color: #F4E3B6;
+    }
 }
 
 .position-button{

@@ -1,25 +1,63 @@
 import "./MySounds.css"
+import React, {useEffect, useState} from 'react';
 
-export default function MySounds() {
-    return (
-    <>
+
+
+    export default function MySounds() {
+        const [myFavorites, setMyFavorites] = useState([]);
+
+        useEffect(() => {
+            const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            setMyFavorites(storedFavorites);
+        }, []);
+
+        const handleRemoveMyFavorite = (track) => {
+            const updatedFavorites = myFavorites.filter((favorite) => favorite.name !== track.name || favorite.artist !== track.artist);
+            setMyFavorites(updatedFavorites);
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        };
+
+
+        return (
         <div className="background-container">
             <ol>
-                <li className='list-items'> 1</li>
-                <li className="list-items"> 2</li>
-                <li className='list-items'> 3</li>
-                <li className='list-items'> 4</li>
-                <li className='list-items'> 5</li>
-                <li className='list-items'> 6</li>
-                <li className='list-items'> 7</li>
-                <li className='list-items'> 8</li>
-                <li className='list-items'> 9</li>
-                <li className='list-items'> 10</li>
+                {myFavorites.length > 0 ? (
+                    myFavorites.map((favorite, index) => {
+                        if (!favorite || !favorite.name || !favorite.artist) {
+                            console.log("Invalid favorite data:", favorite);
+                            return null;
+                        }
+                        console.log("Favorite:", favorite.name, favorite.artist);
+                        return (
+                            <li key={index} className="list-items">
+                                <span className="list-item-number">
+                                {index + 1}.</span>
+                                <a
+                                    href={`https://www.last.fm/search?q=${encodeURIComponent(favorite.name)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <p className="track-name">{favorite.name }</p>
+
+                                    <p>{favorite.artist.name}</p>
+                                </a>
+                                {" "}
+                                <div className="border-for-delete">
+                                    <button className="delete-button" onClick={() => handleRemoveMyFavorite(favorite)}>
+                                        delete song
+                                    </button>
+                                </div>
+                            </li>
+                        );
+                    })
+                ) : (
+                    <p className="list-items">No favorites found.</p>
+                )}
             </ol>
             <div className="position-button">
                 <button className="button-logout">uitloggen</button>
             </div>
         </div>
-    </>
-    )
+    );
 }
+
