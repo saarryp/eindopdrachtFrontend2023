@@ -72,7 +72,7 @@ export default function Search() {
         }
 
         // Update the liked songs in localStorage
-        localStorage.setItem('favorites', JSON.stringify(updatedOurFavorites));
+        localStorage.setItem('ourFavorites', JSON.stringify(updatedOurFavorites));
         console.log(updatedOurFavorites);
     };
 
