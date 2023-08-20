@@ -24,6 +24,19 @@
     align-items: center;
 }
 
+.close-button {
+    background-color: transparent;
+    border: none;
+    color: #121111;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
 
 .subscription-form {
     margin-top: 20px;
@@ -36,11 +49,18 @@
 .email-box,
 .password-box{
     height: 40px;
-    width: 200px;
-    border: 2px solid black;
+    width: 400px;
+    border: 1px solid black;
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
 }
 
-
+.subscription-box {
+    background-color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}

@@ -76,9 +76,9 @@ const SubscribeModal = ({closeModal}) => {
     return (
         <div className="subscribe-modal">
             <div className="modal-subscribe-content">
-        <span className="close" onClick={closeModal}>
-          &times;
-        </span>
+                 <span className="close-button" onClick={closeModal}>
+                    &times;
+                </span>
                 <form className="subscription-form">
                     <input type="text" placeholder="Username:" className="username-box"/>
                     <input type="email" placeholder="Email:" className="email-box" />
