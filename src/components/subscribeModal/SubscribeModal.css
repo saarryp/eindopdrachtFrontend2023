@@ -1,0 +1,46 @@
+.subscribe-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px dotted darkcyan;
+    flex-direction: column;
+}
+
+.modal-subscribe-content {
+    background-color: #F4E3B6;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.subscription-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.username-box,
+.email-box,
+.password-box{
+    height: 40px;
+    width: 200px;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
