@@ -76,7 +76,7 @@ const SubscribeModal = ({closeModal}) => {
     return (
         <div className="subscribe-modal">
             <div className="modal-subscribe-content">
-                 <span className="close-button" onClick={closeModal}>
+                 <span className="close-subscribe-button" onClick={closeModal}>
                     &times;
                 </span>
                 <form className="subscription-form">

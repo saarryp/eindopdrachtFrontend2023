@@ -60,10 +60,13 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
                         Login
                     </button>
                 </form>
-                <button className="close-button"
-                        onClick={onClose}>
-                    Close
+                <button className="close-login-button" onClick={onClose}>
+                    &times;
                 </button>
+                {/*<button className="close-button"*/}
+                {/*        onClick={onClose}>*/}
+                {/*    x*/}
+                {/*</button>*/}
             </div>
         </div>
     );

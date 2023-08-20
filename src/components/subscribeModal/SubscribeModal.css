@@ -24,7 +24,7 @@
     align-items: center;
 }
 
-.close-button {
+.close-subscribe-button {
     background-color: transparent;
     border: none;
     color: #121111;
@@ -47,7 +47,7 @@
 
 .username-box,
 .email-box,
-.password-box{
+.password-box {
     height: 40px;
     width: 400px;
     border: 1px solid black;
