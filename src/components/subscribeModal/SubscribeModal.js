@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import './SubscribeModal.css';
 import {AuthContext} from "../../context/AuthContext";
 import {useSubscribeHook} from "../../hooks/useSubscribeHook";
+import BackendTestComponent from "../backendTest/BackendTest";
 
 // const SubscribeModal = ({isOpen, onClose, onSubscribe}) => {
 //     const [modalOpen, setModalOpen] = useState(false)
@@ -80,13 +81,18 @@ const SubscribeModal = ({closeModal}) => {
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const {subscribe, error, isLoading} = useSubscribeHook();
+    const [isLoading, setIsLoading] = useState(false);
+    const {subscribe, error} = useSubscribeHook();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        setIsLoading(true)
+
         //
-        await subscribe(username, email, password)
+        await subscribe(username, email, password, ['user']);
+
+        setIsLoading(false)
     }
 
     // const {username} = useContext(AuthContext);
@@ -124,10 +130,14 @@ const SubscribeModal = ({closeModal}) => {
                     />
                     <button
                         type="submit"
-                        className="subscription-box">
+                        className="subscription-box"
+                    >
                         {error && <div className= "error">{error}</div> }
                         Subscribe
                     </button>
+                    {/*<div>*/}
+                    {/*    <BackendTestComponent/>*/}
+                    {/*</div>*/}
                 </form>
             </div>
         </div>

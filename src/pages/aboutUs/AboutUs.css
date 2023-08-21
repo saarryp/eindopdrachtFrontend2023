@@ -17,14 +17,14 @@
     flex-basis: auto;
 }
 
-.position-text-and-button {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    padding-right: 1px;
-    flex: 1;
-    border: 4px dotted deeppink;
-}
+/*.position-text-and-button {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    background-color: black;*/
+/*    padding-right: 1px;*/
+/*    flex: 1;*/
+/*    border: 4px dotted deeppink;*/
+/*}*/
 
 .container-text-about {
     display: flex;
@@ -33,10 +33,11 @@
     margin-right: 40px;
     padding-left: 40px;
     min-height: 90vh;
+    margin-top: 130px
 }
 
 .about-us {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -47,18 +48,19 @@
     font-family: 'Inter', sans-serif;
     color: white;
     white-space: nowrap;
-    line-height: 2.5;
+    line-height: 2;
 }
 
 .about-us .bangers {
     font-size: 30px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     color: #F4E3B6;
 }
 
 .about-us .go-on {
-    margin-top: 60px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     font-size: 22px;
 }
 
