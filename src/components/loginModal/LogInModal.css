@@ -1,4 +1,4 @@
-.button {
+.login-button {
     background-color: #F4E3B6;
     color: #121111;
     font-family: 'Inter', sans-serif;
@@ -6,6 +6,11 @@
     height: 140px;
     border-radius: 50%;
     border: 2px solid #121111;
+    transition: border-bottom 0.3s;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
 }
 
 .modal-content {
@@ -58,7 +63,6 @@
     border: none;
     color: #121111;
     text-decoration: none;
-    cursor: pointer;
     padding: 0;
     font-family: 'Inter', sans-serif;
     transition: color 0.3s, border-bottom 0.3s;
@@ -66,6 +70,7 @@
     margin-bottom: 5px;
     margin-top: 12px;
     font-size: 25px;
+    cursor: pointer;
 }
 
 .login-link:hover {
@@ -73,7 +78,6 @@
     background-color: transparent;
     border-bottom: 2px solid #121111;
 }
-
 
 .close-login-button {
     background-color: transparent;

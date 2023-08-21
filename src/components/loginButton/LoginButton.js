@@ -52,6 +52,7 @@
 
 // ButtonLogIn.js
 import React, { useState } from 'react';
+import './LoginButton.css';
 import LoginModal from '../../components/loginModal/LogInModal';
 
 const ButtonLogIn = ({ onLogin }) => {
@@ -66,9 +67,9 @@ const ButtonLogIn = ({ onLogin }) => {
     };
 
     return (
-        <div className="login-button">
-            <button className="button" onClick={openModal}>
-                LOGIN
+        <div>
+            <button className="login-button" onClick={openModal}>
+                Login
             </button>
             <LoginModal isOpen={modalOpen} onClose={closeModal} onLogin={onLogin} />
         </div>

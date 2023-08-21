@@ -37,6 +37,7 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
     }
 
     return (
+
         <div className="modal-content">
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>

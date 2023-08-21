@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import './SubscribeModal.css';
+import {AuthContext} from "../../context/AuthContext";
+import {useSubscribeHook} from "../../hooks/useSubscribeHook";
 
 // const SubscribeModal = ({isOpen, onClose, onSubscribe}) => {
 //     const [modalOpen, setModalOpen] = useState(false)
@@ -71,22 +73,65 @@ import './SubscribeModal.css';
 //
 //
 
+
+
 const SubscribeModal = ({closeModal}) => {
 
+    const [username, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const {subscribe, error, isLoading} = useSubscribeHook();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        //
+        await subscribe(username, email, password)
+    }
+
+    // const {username} = useContext(AuthContext);
+
+
+
     return (
+        <>
         <div className="subscribe-modal">
             <div className="modal-subscribe-content">
                  <span className="close-subscribe-button" onClick={closeModal}>
                     &times;
                 </span>
-                <form className="subscription-form">
-                    <input type="text" placeholder="Username:" className="username-box"/>
-                    <input type="email" placeholder="Email:" className="email-box" />
-                    <input type="password" placeholder="Password:" className="password-box"/>
-                    <button type="submit" className="subscription-box">Subscribe</button>
+                <form onSubmit={handleSubmit} className="subscription-form">
+                    <input
+                        type="text"
+                        placeholder="Username:"
+                        onChange={(e) => setUserName(e.target.value)}
+                        value={username}
+                        className="username-box"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email:"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        className="email-box"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password:"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        className="password-box"
+                    />
+                    <button
+                        type="submit"
+                        className="subscription-box">
+                        {error && <div className= "error">{error}</div> }
+                        Subscribe
+                    </button>
                 </form>
             </div>
         </div>
+        </>
     );
 }
 
