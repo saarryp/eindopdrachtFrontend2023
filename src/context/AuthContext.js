@@ -37,7 +37,10 @@ function AuthContextProvider({children}) {
     }
 
     function logout() {
+        //token uit local storage verwijderen
         console.log("user is logged out");
+        //de gebruikersgegegevns uit de state verwijderen
+        //auth op false zetten
         setIsAuth({
             isAuthenticated: false,
             user: null,
@@ -52,21 +55,6 @@ function AuthContextProvider({children}) {
         logoutFunction: logout,
     };
 
-// export const AuthReducer = (state, action) => {
-//     switch (action.type) {
-//         case 'Login':
-//             return { user: action.payload };
-//         case 'Logout':
-//             return { user: null };
-//         default:
-//             return state;
-//     }
-// };
-//
-// export const AuthContextProvider = ({ children }) => {
-//     const [state, dispatch] = useReducer(AuthReducer, {
-//         user: null,
-//     });
 
     return (
         <AuthContext.Provider value={contextData}>

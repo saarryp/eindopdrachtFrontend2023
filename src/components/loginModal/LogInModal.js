@@ -6,6 +6,7 @@ import './LogInModal.css'
 const LoginModal = ({ isOpen, onClose, onLogin }) => {
     const { handleSubmit, register } = useForm();
 
+
     // const [usernameError, setUsernameError] = useState('');
     // const [passwordError, setPasswordError] = useState('');
 
@@ -19,16 +20,11 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
 
 
                );
-           console.log('Response from server:', response);
-
-            // Close the modal after successful login
-            // if(response.ok) {
-            //     const ResponseData = await response.json();
-            //     onLogin(responseData.token)
+           console.log(response);
 
             onClose();
         } catch (error) {
-            console.error('Error:', error);
+            console.error(error);
         }
     };
 
