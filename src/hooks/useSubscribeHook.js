@@ -1,5 +1,6 @@
 import  {useState, useContext} from 'react';
 import {AuthContext} from "../context/AuthContext";
+import axios from "axios";
 
 
 export const useSubscribeHook = () => {
@@ -10,44 +11,38 @@ export const useSubscribeHook = () => {
     const subscribe = async (username, email, password) => {
         setIsLoading(true)
         setError(null)
-
+        console.log(username, email, password)
         try {
-            const response = await fetch('/api/auth/signup', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({username, email, password})
-            });
+            const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup',
+                {
+                    username: username,
+                    email: email,
+                    password: password,
+                    role: ["user"]
 
-            const json = await response.json()
+                });
+
+            console.log(response.data)
+            const result = response.data
 
             if (!response.ok) {
                 setIsLoading(false)
-                setError(json.error)
+                setError(response.error)
             } else {
-                localStorage.setItem('user', JSON.stringify(json));
-                dispatch({type: 'Login', payload: json});
+                localStorage.setItem('user', JSON.stringify(result));
+                dispatch({type: 'Login', payload: result});
             }
         } catch (error) {
+            console.error(error)
             setError("Ooooops! Something went wrong during subscription.\n\n" +
                 "Possible issue:\n." +
                 "1.  Username and password must at least be 6 characters long.\n" +
                 "2. The e-mailadress should have a valid format @.\n\n" +
                 "Please check your input and try again")
-        }
-             finally {
+        } finally {
             setIsLoading(false);
         }
-    // if (response.ok) {
-    //     //save user to localstorage
-    //     localStorage.setItem('user', JSON.stringify(json))
-    //
-    //     //update the auth context
-    //
-    //     dispatch({type: 'Login', payload: JSON})
-    //
-    //     setIsLoading(false)
-    }
-    return { subscribe, isLoading, error}
-    }
 
-
+        return {subscribe, isLoading, error}
+    }
+}

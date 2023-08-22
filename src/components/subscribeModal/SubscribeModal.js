@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import './SubscribeModal.css';
 import {AuthContext} from "../../context/AuthContext";
 import {useSubscribeHook} from "../../hooks/useSubscribeHook";
-import BackendTestComponent from "../backendTest/BackendTest";
 
 // const SubscribeModal = ({isOpen, onClose, onSubscribe}) => {
 //     const [modalOpen, setModalOpen] = useState(false)
@@ -135,9 +134,6 @@ const SubscribeModal = ({closeModal}) => {
                         {error && <div className= "error">{error}</div> }
                         Subscribe
                     </button>
-                    {/*<div>*/}
-                    {/*    <BackendTestComponent/>*/}
-                    {/*</div>*/}
                 </form>
             </div>
         </div>
