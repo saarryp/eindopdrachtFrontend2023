@@ -1,21 +1,30 @@
-import React, {useContext, useState} from 'react';
+import React, { useState} from 'react';
 import './SubscribeModal.css';
-import {AuthContext} from "../../context/AuthContext";
 import {useSubscribeHook} from "../../hooks/useSubscribeHook";
+import {useNavigate} from "react-router-dom";
 
 const SubscribeModal = ({closeModal}) => {
 
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const {subscribe, error} = useSubscribeHook();
+    const [isStillLoading, setIsStillLoading] = useState(false);
+    const {subscribe, error, isSubscribed} = useSubscribeHook();
+
+    const navigate = useNavigate();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setIsLoading(true)
+        setIsStillLoading(true)
+
+
         await subscribe(username, email, password, ['user']);
-        setIsLoading(false)
+        setIsStillLoading(false)
+
+        if (isSubscribed) {
+            navigate('/')
+        }
     }
 
     return (
@@ -35,7 +44,7 @@ const SubscribeModal = ({closeModal}) => {
                     />
                     {error && error.includes("Username") && <p className="error-message">{error}</p>}
                     <input
-                        type="email"
+                        type="text"
                         placeholder="Email:"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
@@ -51,11 +60,16 @@ const SubscribeModal = ({closeModal}) => {
                     />
                     <button
                         type="submit"
-                        className="subscription-box"
-                    >
-                        {error && <div className= "error">{error}</div> }
-                        Subscribe
+                        className={`subscription-box ${isSubscribed ? 'subscribed' : ''}`}
+                        disabled={isSubscribed}>
+                        {isStillLoading ? 'Loading...' : isSubscribed ? 'Congratulations!  Your registration has been successfully completed. 🎵' : 'Subscribe'}
+
+
+
+                    {/*>  {error && <div className= "error-message">{error}</div> }*/}
+                    {/*    Subscribe*/}
                     </button>
+
                 </form>
             </div>
         </div>

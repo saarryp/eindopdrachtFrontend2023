@@ -1,15 +1,22 @@
-import { useState, useContext } from 'react';
-import { AuthContext } from "../context/AuthContext";
+import { useState } from 'react';
+// import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+
 
 export const useSubscribeHook = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const { dispatch } = useContext(AuthContext);
+    const[isSubscribed, setIsSubscribed] = useState(false);
+    // const {  } = useContext(AuthContext);
+
+    const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
 
     const subscribe = async (username, email, password) => {
         setIsLoading(true);
         setError(null);
+        setIsSubscribed(false);
+
+            console.log(email)
 
         if (username.length < 6) {
             setError("Oooops, your name must be at least 6 characters long")
@@ -17,8 +24,8 @@ export const useSubscribeHook = () => {
             return
         }
 
-        if (!email.includes('@')) {
-            setError("Ooops you forgot to add a @. Invalid adress.");
+        if (!email.match(regex)) {
+            setError("Ooops your email doesnt exist. Invalid adress.");
             setIsLoading(false);
             return;
         }
@@ -30,23 +37,30 @@ export const useSubscribeHook = () => {
                 password: password,
                 role: ["user"]
             });
+            console.log(response)
 
-            const result = response.data;
-
-            if (!response.ok) {
-                setError(response.error);
-            } else {
-                localStorage.setItem('user', JSON.stringify(result));
-                dispatch({ type: 'Login', payload: result });
+            // const result = response.data;
+            if (response.status !== 200) {
+                setError(response.data.error);
+                } else {
+                localStorage.setItem('user', JSON.stringify(response.data));
+                setIsSubscribed(true);
+                }
+                } catch (error) {
+            if (error.response) {
+                setError(error.response.data.error);
+            } else if (error.message === "custom_error_condition") {
+                setError("A custom error occurred. Please check your input and try again.");
             }
-        } catch (error) {
-            setError("Ooooops! Something went wrong during subscription.\n\n" +
-                "Please check your input and try again");
+            if (error.response) {
+                setError(error.response.data.error);
+            }
+
         } finally {
             setIsLoading(false);
         }
     };
 
     // Return the variables from the hook
-    return { subscribe, isLoading, error };
+    return { subscribe, isLoading, error, isSubscribed };
 };

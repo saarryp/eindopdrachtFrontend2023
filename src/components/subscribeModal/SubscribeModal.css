@@ -65,6 +65,26 @@
     border: 1px solid black;
 }
 
+.error-message {
+    color: #121111;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.subscribe-modal.subscribed {
+    /* Add styles here for the subscription box when subscribed */
+    /* For example: */
+    background-color: green;
+}
+
+.subscription-box.subscribed {
+    /* Add styles here for the button when subscribed */
+    /* For example: */
+    background-color: #b59b2a;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
 
 
 
