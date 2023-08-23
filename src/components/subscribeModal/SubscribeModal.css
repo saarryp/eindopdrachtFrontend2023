@@ -72,14 +72,10 @@
 }
 
 .subscribe-modal.subscribed {
-    /* Add styles here for the subscription box when subscribed */
-    /* For example: */
     background-color: green;
 }
 
 .subscription-box.subscribed {
-    /* Add styles here for the button when subscribed */
-    /* For example: */
     background-color: #b59b2a;
     color: white;
     font-family: 'Inter', sans-serif;

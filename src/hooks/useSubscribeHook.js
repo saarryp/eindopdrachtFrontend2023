@@ -12,14 +12,18 @@ export const useSubscribeHook = () => {
     const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
 
     const subscribe = async (username, email, password) => {
+        console.log("Username:", username);
+        console.log("Email:", email);
+        console.log("Password:", password);
+
         setIsLoading(true);
         setError(null);
         setIsSubscribed(false);
 
             console.log(email)
 
-        if (username.length < 6) {
-            setError("Oooops, your name must be at least 6 characters long")
+        if (username.length < 6 || password.length < 6) {
+            setError("Oooops, your name and password must be at least 6 characters long")
             setIsLoading(false);
             return
         }
@@ -39,16 +43,21 @@ export const useSubscribeHook = () => {
             });
             console.log(response)
 
-            // const result = response.data;
             if (response.status !== 200) {
                 setError(response.data.error);
                 } else {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 setIsSubscribed(true);
                 }
-                } catch (error) {
+        } catch (error) {
             if (error.response) {
+                if (error.response.status === 400 && error.response.data.message === "Username already exists" ) {
+                    console.log("setting error message. Username already exist")
+                    setError("Username already exists. Please choose a different username.");
+                } else {
                 setError(error.response.data.error);
+                }
+
             } else if (error.message === "custom_error_condition") {
                 setError("A custom error occurred. Please check your input and try again.");
             }

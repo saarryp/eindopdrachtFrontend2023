@@ -63,13 +63,9 @@ const SubscribeModal = ({closeModal}) => {
                         className={`subscription-box ${isSubscribed ? 'subscribed' : ''}`}
                         disabled={isSubscribed}>
                         {isStillLoading ? 'Loading...' : isSubscribed ? 'Welcome!  Your registration has been successfully completed. You can log in now.' : 'Register'}
-
-
-
-                    {/*>  {error && <div className= "error-message">{error}</div> }*/}
+                    {error && <div className= "error-message">{error}</div> }
                     {/*    Subscribe*/}
                     </button>
-
                 </form>
             </div>
         </div>
