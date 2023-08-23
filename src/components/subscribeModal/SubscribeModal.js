@@ -62,7 +62,7 @@ const SubscribeModal = ({closeModal}) => {
                         type="submit"
                         className={`subscription-box ${isSubscribed ? 'subscribed' : ''}`}
                         disabled={isSubscribed}>
-                        {isStillLoading ? 'Loading...' : isSubscribed ? 'Congratulations!  Your registration has been successfully completed. 🎵' : 'Subscribe'}
+                        {isStillLoading ? 'Loading...' : isSubscribed ? 'Welcome!  Your registration has been successfully completed. You can log in now.' : 'Register'}
 
 
 

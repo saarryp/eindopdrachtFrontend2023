@@ -18,7 +18,7 @@ import SubscribeModal from '../../components/subscribeModal/SubscribeModal'
                     onClick={openModal}
                     className={`subscribe-button ${modalOpen ? 'active' : ''}`}
                 >
-                    Subscribe
+                   Register
                 </button>
                 {modalOpen && <SubscribeModal closeModal={() => setModalOpen(false)} />}
             </div>
