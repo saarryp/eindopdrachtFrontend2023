@@ -12,7 +12,7 @@ import AuthContext from "../context/AuthContext";
 
 function Login() {
 
-    const { loginFunction } = useContext(AuthContext);
+    const loginFunction = useContext(AuthContext);
 
 
     async function logUserIn() {
