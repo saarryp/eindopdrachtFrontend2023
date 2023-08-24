@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import axios from "axios";
-import './LogInModal.css'
+import './LogInModal.css';
+import '../../hooks/useLoginHook';
+// import {AuthContext} from "../../context/AuthContext";
+import useLoginHook from "../../hooks/useLoginHook";
 
 const LoginModal = ({ isOpen, onClose, onLogin }) => {
     const { handleSubmit, register } = useForm();
+    const {logUserIn} = useLoginHook();
+
 
 
     // const [usernameError, setUsernameError] = useState('');
@@ -12,17 +16,20 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
 
     const onSubmit = async (data) => {
         try {
-           const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin',
-               {
-                   username: data.username,
-                   password: data.password,
-               }
-
-
-               );
-           console.log(response);
-
+            await logUserIn();
             onClose();
+
+           // const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin',
+           //     {
+           //         username: data.username,
+           //         password: data.password,
+
+
+
+
+           // console.log(response);
+           //
+           //  onClose();
         } catch (error) {
             console.error(error);
         }
@@ -53,7 +60,8 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
                            }}
                     />
                     <button className="login-link"
-                            type="submit">
+                            type="submit"
+                        onClick={logUserIn}>
                         Login
                     </button>
                 </form>

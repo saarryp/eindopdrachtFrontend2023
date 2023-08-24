@@ -8,23 +8,35 @@ import {useNavigate} from "react-router-dom";
 
 export const AuthContext = createContext({})
 
+// f
+
 function AuthContextProvider({children}) {
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
         user: null,
-        status: "pending",
+        status: "done",
     });
+
+    console.log("AuthContextProvider rendering ...")
+
     const navigate = useNavigate();
     useEffect(() => {
         console.log('test')
-        setIsAuth({
+        setIsAuth(prevState => ({
+            ...prevState,
             isAuthenticated: false,
             user: null,
             status: "done",
-        });
+        }));
     }, []);
 
+    console.log("isAuth", isAuth);
+
     function login() {
+        //als de loginfunctie de token heeft opgehaald dan function login(token)
+        // dan console.log(token), dan in de context de token is gelogd
+        //dan localStorage aanroepen want anders bij refreshen ben je alles kwijt
+        // localStorage.setItem();
         console.log("User is logged in");
         setIsAuth({
             isAuthenticated: true,
@@ -32,6 +44,8 @@ function AuthContextProvider({children}) {
                 username: 'piet',
                 email: 'piet@novi.nl',
             }
+            //dan console.log(response.data.accesToken);
+            //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token
         });
         navigate('/my-sounds')
     }
@@ -61,7 +75,7 @@ function AuthContextProvider({children}) {
             {isAuth.status === 'done' ? children : <p>Loading...</p>}
         </AuthContext.Provider>
     )
-};
+}
 
 export default AuthContextProvider
 

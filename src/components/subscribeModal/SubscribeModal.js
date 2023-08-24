@@ -62,8 +62,9 @@ const SubscribeModal = ({closeModal}) => {
                         type="submit"
                         className={`subscription-box ${isSubscribed ? 'subscribed' : ''}`}
                         disabled={isSubscribed}>
-                        {isStillLoading ? 'Loading...' : isSubscribed ? 'Welcome!  Your registration has been successfully completed. You can log in now.' : 'Register'}
-                    {error && <div className= "error-message">{error}</div> }
+                        {isStillLoading ? 'Loading...' : isSubscribed ? 'Welcome!  Your registration has been successfully completed. You can log in now.' : 'Register' }
+                        {/*<Link to naar inlogbutton homepage?*/}
+                        {error && <div className= "error-message">{error}</div> }
                     {/*    Subscribe*/}
                     </button>
                 </form>
