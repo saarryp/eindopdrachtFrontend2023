@@ -21,16 +21,19 @@ function Login() {
                 'https://frontend-educational-backend.herokuapp.com/api/auth/signin',
 
             {
-                    email: "piet@novi.nl",
-                    password: "123456"
+                    username: "user",
+                    email: "email",
+                    password: "password",
+
             }
             );
-            console.log(response)
+            // console.log(response.data.accesToken)
             // als de token is opgehaald in de console dan console.log(response.data.accesToken);
             //dan logInfunction(response.data.accesToken); om de data naar de context door te sturen
             //dan in de context van AuthContext de functie een argument mee te geven
-            //roep de functie van de context aan zodat de rest geregeld kan worden
-            loginFunction()
+            //roep de loginfunctie van de context (loginFunction)aan zodat de rest geregeld kan worden
+
+            loginFunction(response.data.accesToken)
         } catch(e) {
             console.error(e)
         }

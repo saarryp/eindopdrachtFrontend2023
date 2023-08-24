@@ -54,6 +54,7 @@
 import React, { useState } from 'react';
 import './LoginButton.css';
 import LoginModal from '../../components/loginModal/LogInModal';
+import '../../hooks/useLoginHook';
 
 const ButtonLogIn = ({ onLogin }) => {
     const [modalOpen, setModalOpen] = useState(false);

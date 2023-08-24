@@ -32,7 +32,8 @@ function AuthContextProvider({children}) {
 
     console.log("isAuth", isAuth);
 
-    function login() {
+    function login(token) {
+        // console.log(token)
         //als de loginfunctie de token heeft opgehaald dan function login(token)
         // dan console.log(token), dan in de context de token is gelogd
         //dan localStorage aanroepen want anders bij refreshen ben je alles kwijt
@@ -41,8 +42,8 @@ function AuthContextProvider({children}) {
         setIsAuth({
             isAuthenticated: true,
             user: {
-                username: 'piet',
-                email: 'piet@novi.nl',
+                username: 'user',
+                email: 'email',
             }
             //dan console.log(response.data.accesToken);
             //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token

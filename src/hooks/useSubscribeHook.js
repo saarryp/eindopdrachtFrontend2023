@@ -39,9 +39,14 @@ export const useSubscribeHook = () => {
                 username: username,
                 email: email,
                 password: password,
-                role: ["user"]
+                role: ["user"],
+                // username: "pieter",
+                // email: "pieter@novi.nl",
+                // password: "123456",
+                // user: ["user"],
+
             });
-            console.log(response)
+            console.log(response.data)
 
             if (response.status !== 200) {
                 setError(response.data.error);
@@ -71,5 +76,5 @@ export const useSubscribeHook = () => {
     };
 
     // Return the variables from the hook
-    return { subscribe, isLoading, error, isSubscribed };
+    return { subscribe, isLoading, error, isSubscribed};
 };
