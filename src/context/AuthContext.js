@@ -5,6 +5,8 @@
 
 import React, {createContext, useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import jwtDecode from "jwt-decode";
+import axios from "axios";
 
 export const AuthContext = createContext({})
 
@@ -19,11 +21,42 @@ function AuthContextProvider({children}) {
 
     console.log("AuthContextProvider rendering ...")
 
+
+    //is er een token en deze geldig
+    //ja? haal de gebruikers gegevens op
+    //zo nee doe niks, laat de state leeg
     useEffect(() => {
-      let token = localStorage.getItem("token")
-        if (token === null){
-            logout()
-        }{
+      const token = localStorage.getItem('token');
+      const decodedToken = jwtDecode(token);
+      console.log(decodedToken)
+
+      if (token) {
+            async function fetchUserData() {
+                try {
+                    const response =await axios.get(` https://frontend-educational-backend.herokuapp.com/api/user/${decodedToken}`,
+                        {
+                            headers: {
+                                "Content-Type": "application/json",
+                                 Authorization: `Bearer ${token}`,
+                            }
+                    })
+                    console.log(response.data);
+                    setIsAuth({
+                        isAuthenticated: true,
+                        user: {
+                            id: response.data.id,
+                            username: response.data.username,
+                            email: response.data.email,
+                        }
+                    })
+                } catch(e) {
+                    console.error(e)
+                }
+            }
+      }else
+        // if (token === null){
+        //     logout()
+         {
 
         }
 
@@ -55,6 +88,7 @@ function AuthContextProvider({children}) {
         setIsAuth({
             isAuthenticated: true,
             user: {
+                id: 1,
                 username: 'user',
                 email: 'email',
             },
@@ -62,7 +96,7 @@ function AuthContextProvider({children}) {
             //dan console.log(response.data.accesToken);
             //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token
         });
-        navigate('/my-sounds')
+        navigate('/search')
     }
 
     function logout() {
