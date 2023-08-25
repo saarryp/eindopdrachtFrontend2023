@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
 
@@ -7,7 +6,6 @@ export const useSubscribeHook = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const[isSubscribed, setIsSubscribed] = useState(false);
-    // const {  } = useContext(AuthContext);
 
     const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
 
@@ -40,11 +38,6 @@ export const useSubscribeHook = () => {
                 email: email,
                 password: password,
                 role: ["user"],
-                // username: "pieter",
-                // email: "pieter@novi.nl",
-                // password: "123456",
-                // user: ["user"],
-
             });
             console.log(response.data)
 

@@ -12,15 +12,10 @@ export default function OurSounds() {
         setOurFavorites(storedOurFavorites);
     }, []);
 
-    // const handleAdminAction = (track) => {
-    //   console.log("Admin action for:", track.name, track.artist);
-    // };
-
-
     const handleRemoveOurFavorite = (track) => {
-    const updatedOurFavorites = ourFavorites.filter((favorite) => favorite.name !== track.name || favorite.artist !== track.artist);
+    const updatedOurFavorites = ourFavorites.filter((ourFavorite) => ourFavorite.name !== track.name || ourFavorite.artist !== track.artist);
     setOurFavorites(updatedOurFavorites);
-    localStorage.setItem('ourSoundFavorites', JSON.stringify(updatedOurFavorites));
+    localStorage.setItem('ourFavorites', JSON.stringify(updatedOurFavorites));
 };
 
 

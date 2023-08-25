@@ -14,8 +14,7 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
         logUserIn(data.username, data.password)
 
     }
-    // const [usernameError, setUsernameError] = useState('');
-    // const [passwordError, setPasswordError] = useState('');
+
 
     const onSubmit = async (data) => {
         console.log(data)

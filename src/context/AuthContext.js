@@ -43,6 +43,8 @@ function AuthContextProvider({children}) {
 
     console.log("isAuth", isAuth);
 
+
+    //handle de loginactions hieronder, log niet in maar handelt alle actie af
     function login(token) {
         // console.log(token)
         //als de loginfunctie de token heeft opgehaald dan function login(token)
