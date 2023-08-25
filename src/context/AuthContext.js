@@ -14,10 +14,21 @@ function AuthContextProvider({children}) {
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
         user: null,
-        status: "done",
+        status: "pending",
     });
 
     console.log("AuthContextProvider rendering ...")
+
+    useEffect(() => {
+      let token = localStorage.getItem("token")
+        if (token === null){
+            logout()
+        }{
+
+        }
+
+    }, [])
+
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -44,7 +55,8 @@ function AuthContextProvider({children}) {
             user: {
                 username: 'user',
                 email: 'email',
-            }
+            },
+            status: "done"
             //dan console.log(response.data.accesToken);
             //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token
         });
@@ -59,6 +71,7 @@ function AuthContextProvider({children}) {
         setIsAuth({
             isAuthenticated: false,
             user: null,
+            status: "done"
         });
         navigate('/');
     }

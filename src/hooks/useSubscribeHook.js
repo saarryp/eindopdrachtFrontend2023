@@ -23,13 +23,13 @@ export const useSubscribeHook = () => {
             console.log(email)
 
         if (username.length < 6 || password.length < 6) {
-            setError("Oooops, your name and password must be at least 6 characters long")
+            setError("Oooops, your username and password must be at least 6 characters long")
             setIsLoading(false);
             return
         }
 
         if (!email.match(regex)) {
-            setError("Ooops your email doesnt exist. Invalid adress.");
+            setError("Ooops your e-mail doesnt exist. Invalid adress.");
             setIsLoading(false);
             return;
         }

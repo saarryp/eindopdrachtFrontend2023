@@ -42,7 +42,6 @@ const SubscribeModal = ({closeModal}) => {
                         value={username}
                         className="username-box"
                     />
-                    {error && error.includes("Username") && <p className="error-message">{error}</p>}
                     <input
                         type="text"
                         placeholder="Email:"
@@ -50,7 +49,6 @@ const SubscribeModal = ({closeModal}) => {
                         value={email}
                         className="email-box"
                     />
-                    {error && error.includes("email") && <p className="error-message">{error}</p>}
                     <input
                         type="password"
                         placeholder="Password:"

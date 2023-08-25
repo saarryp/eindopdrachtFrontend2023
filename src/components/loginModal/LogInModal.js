@@ -10,7 +10,10 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
     const {logUserIn} = useLoginHook();
 
 
+    function handleLogin(data){
+        logUserIn(data.username, data.password)
 
+    }
     // const [usernameError, setUsernameError] = useState('');
     // const [passwordError, setPasswordError] = useState('');
 
@@ -18,7 +21,6 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
         console.log(data)
         try {
             await logUserIn(data.username, data.password);
-            onLogin();
             onClose();
 
         } catch (error) {
@@ -52,6 +54,7 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
                     />
                     <button className="login-link"
                             type="submit"
+                            onSubmit={() => handleLogin}
                             >
 
                         Login

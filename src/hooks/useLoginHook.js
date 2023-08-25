@@ -8,18 +8,18 @@ import {AuthContext} from "../context/AuthContext";
 // sturen pas na inloggen dat we een token krijgen
 //dan pas token meesturen
 
-function Login(user, password) {
+function useLoginHook(user, password) {
 
-     const loginFunction = useContext(AuthContext);
+     const {loginFunction} = useContext(AuthContext);
 
 
-    async function logUserIn() {
+    async function logUserIn(username, password) {
         try {
             const response = await axios.post(
                 'https://frontend-educational-backend.herokuapp.com/api/auth/signin',
 
             {
-                    username: user,
+                    username: username,
 
                     password: password,
 
@@ -31,16 +31,19 @@ function Login(user, password) {
             //dan in de context van AuthContext de functie een argument mee te geven
             //roep de loginfunctie van de context (loginFunction)aan zodat de rest geregeld kan worden
 
-            loginFunction(response.data.accesToken)
+            console.log('Token', response.data.accessToken );
+
+            loginFunction(response.data.accessToken)
         } catch(e) {
             console.error(e)
         }
     }
 
+    console.log("logUserIn function:", )
 
     return (
         {logUserIn}
     )
 }
 
-export default Login;
+export default useLoginHook;
