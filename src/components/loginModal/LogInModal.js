@@ -15,21 +15,12 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
     // const [passwordError, setPasswordError] = useState('');
 
     const onSubmit = async (data) => {
+        console.log(data)
         try {
-            await logUserIn();
+            await logUserIn(data.username, data.password);
+            onLogin();
             onClose();
 
-           // const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin',
-           //     {
-           //         username: data.username,
-           //         password: data.password,
-
-
-
-
-           // console.log(response);
-           //
-           //  onClose();
         } catch (error) {
             console.error(error);
         }
@@ -61,7 +52,8 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
                     />
                     <button className="login-link"
                             type="submit"
-                        onClick={logUserIn}>
+                            >
+
                         Login
                     </button>
                 </form>

@@ -1,8 +1,6 @@
 import {useContext} from 'react';
 import axios from "axios";
-import AuthContext from "../context/AuthContext";
-
-
+import {AuthContext} from "../context/AuthContext";
 
 
 
@@ -10,9 +8,9 @@ import AuthContext from "../context/AuthContext";
 // sturen pas na inloggen dat we een token krijgen
 //dan pas token meesturen
 
-function Login() {
+function Login(user, password) {
 
-    const loginFunction = useContext(AuthContext);
+     const loginFunction = useContext(AuthContext);
 
 
     async function logUserIn() {
@@ -21,9 +19,9 @@ function Login() {
                 'https://frontend-educational-backend.herokuapp.com/api/auth/signin',
 
             {
-                    username: "user",
-                    email: "email",
-                    password: "password",
+                    username: user,
+
+                    password: password,
 
             }
             );
