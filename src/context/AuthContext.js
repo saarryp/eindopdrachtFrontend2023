@@ -10,8 +10,6 @@ import axios from "axios";
 
 export const AuthContext = createContext({})
 
-// f
-
 function AuthContextProvider({children}) {
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
@@ -27,54 +25,64 @@ function AuthContextProvider({children}) {
     //zo nee doe niks, laat de state leeg
     useEffect(() => {
       const token = localStorage.getItem('token');
-      const decodedToken = jwtDecode(token);
-      console.log(decodedToken)
 
       if (token) {
-            async function fetchUserData() {
-                try {
-                    const response =await axios.get(` https://frontend-educational-backend.herokuapp.com/api/user/${decodedToken}`,
-                        {
-                            headers: {
-                                "Content-Type": "application/json",
-                                 Authorization: `Bearer ${token}`,
-                            }
-                    })
-                    console.log(response.data);
-                    setIsAuth({
-                        isAuthenticated: true,
-                        user: {
-                            id: response.data.id,
-                            username: response.data.username,
-                            email: response.data.email,
-                        }
-                    })
-                } catch(e) {
-                    console.error(e)
-                }
-            }
-      }else
-        // if (token === null){
-        //     logout()
-         {
-
-        }
-
-    }, [])
+          const decodedToken = jwtDecode(token);
+            void fetchUserData(decodedToken.id, token)
+      } else {
+          setIsAuth(
+              {
+                  ...isAuth,
+                  status: 'done',
+              })
+          }
+    }, []);
 
 
     const navigate = useNavigate();
-    useEffect(() => {
-        console.log('test')
-        setIsAuth(prevState => ({
-            ...prevState,
-            isAuthenticated: false,
-            user: null,
-            status: "done",
-        }));
-    }, []);
+
+    // useEffect(() => {
+    //  console.log('test')
+    //     setIsAuth(prevState => ({
+    //         ...prevState,
+    //        isAuthenticated: false,
+    //         user: null,
+    //         status: "done",
+    //     }));
+    // }, []);
 
     console.log("isAuth", isAuth);
+
+    async function fetchUserData(id, decodedToken, token) {
+        try {
+            const response =await axios.get(` https://frontend-educational-backend.herokuapp.com/api/user/${decodedToken}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    }
+                });
+
+            console.log(response.data);
+
+            setIsAuth({
+                ...isAuth,
+                isAuth: true,
+                user: {
+                    username: response.data.username,
+                    email: response.data.email,
+                    id: response.data.id,
+                },
+                status: 'done',
+            })
+        } catch(e) {
+            setIsAuth({
+                ...isAuth,
+                status: 'done',
+            })
+            console.error(e)
+        }
+    }
 
 
     //handle de loginactions hieronder, log niet in maar handelt alle actie af
@@ -84,31 +92,37 @@ function AuthContextProvider({children}) {
         // dan console.log(token), dan in de context de token is gelogd
         //dan localStorage aanroepen want anders bij refreshen ben je alles kwijt
         // localStorage.setItem();
+        localStorage.setItem('token', token)
+        const decodedToken = jwtDecode(token)
         console.log("User is logged in");
-        setIsAuth({
-            isAuthenticated: true,
-            user: {
-                id: 1,
-                username: 'user',
-                email: 'email',
-            },
-            status: "done"
-            //dan console.log(response.data.accesToken);
-            //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token
-        });
+        void fetchUserData(decodedToken, token);
+
+        // setIsAuth({
+        //     isAuthenticated: true,
+        //     user: {
+        //         id: 1,
+        //         username: 'user',
+        //         email: 'email',
+        //     },
+        //     status: "done"
+        //     //dan console.log(response.data.accesToken);
+        //     //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token
+        // });
         navigate('/search')
     }
 
     function logout() {
+        localStorage.clear();
         //token uit local storage verwijderen
-        console.log("user is logged out");
+        // console.log("user is logged out");
         //de gebruikersgegegevns uit de state verwijderen
         //auth op false zetten
         setIsAuth({
             isAuthenticated: false,
             user: null,
-            status: "done"
+            status: 'done',
         });
+        console.log("user is logged out")
         navigate('/');
     }
 
