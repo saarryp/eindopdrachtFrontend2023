@@ -1,9 +1,11 @@
 
 import React from "react";
+import LogoutButton from "../logoutButton/LogoutButton";
 
 export default function SearchResults({ results, onAddToFavorites, handleAdminAction }) {
 
     return (
+        <>
         <ul className="ul-position ul-albums">
             {results.albummatches.album.map((album) => (
                 <li key={`${album.mbid}-${album.name}`}>
@@ -38,7 +40,13 @@ export default function SearchResults({ results, onAddToFavorites, handleAdminAc
                         <p className="tracks-not-found">No tracks found for this album.</p>
                     )}
                 </li>
+
+
             ))}
+            <LogoutButton/>
         </ul>
+
+
+        </>
     );
 }

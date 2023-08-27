@@ -55,9 +55,9 @@ return (
                 <p className="list-items">No favorites found.</p>
             )}
         </ol>
-        <div className="position-button">
-            <button className="button-logout">uitloggen</button>
-        </div>
+        {/*<div className="position-button">*/}
+        {/*    <button className="button-logout">uitloggen</button>*/}
+        {/*</div>*/}
     </div>
 );
 }

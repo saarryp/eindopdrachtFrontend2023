@@ -1,5 +1,6 @@
 import "./MySounds.css"
 import React, {useEffect, useState} from 'react';
+import LogoutButton from "../../components/logoutButton/LogoutButton";
 
 
 
@@ -60,9 +61,13 @@ import React, {useEffect, useState} from 'react';
                 )}
             </ol>
             <div className="position-button">
-                <button className="button-logout">uitloggen</button>
-            </div>
+                <div className="button-logout">
+                <LogoutButton/>
+                {/*<button className="button-logout">uitloggen</button>*/}
+                </div>
+             </div>
         </div>
+
     );
 }
 

@@ -171,10 +171,6 @@
     margin-bottom: 15px;
 }
 
-/*.title {*/
-/*    font-size: 21px;*/
-/*}*/
-
 h2 {
     display: flex;
     justify-content: center;
@@ -208,10 +204,6 @@ h2 {
     width: 40px;
     height: 20px;
 }
-/*.music-emoji {*/
-/*    font-size: 10px;*/
-/*    margin-left: 5px;*/
-/*!*}*! <span className="music-emoji" role="img" aria-label="music">️</span>*/
 
 .tracks-not-found {
     display: flex;

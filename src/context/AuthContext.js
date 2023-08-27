@@ -1,8 +1,3 @@
-
-//maak stuk context aan in index.js door om de app te wikkelen
-//gebruik provider component van die context om de app te kunnen wikkelen
-
-
 import React, {createContext, useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import jwtDecode from "jwt-decode";
@@ -28,7 +23,7 @@ function AuthContextProvider({children}) {
 
       if (token) {
           const decodedToken = jwtDecode(token);
-            void fetchUserData(decodedToken.id, token)
+            void fetchUserData(decodedToken, token)
       } else {
           setIsAuth(
               {
@@ -53,7 +48,7 @@ function AuthContextProvider({children}) {
 
     console.log("isAuth", isAuth);
 
-    async function fetchUserData(id, decodedToken, token) {
+    async function fetchUserData(decodedToken, token) {
         try {
             const response =await axios.get(` https://frontend-educational-backend.herokuapp.com/api/user/${decodedToken}`,
                 {
@@ -108,11 +103,11 @@ function AuthContextProvider({children}) {
         //     //dan console.log(response.data.accesToken);
         //     //dan loginFunction(response.data.accesToken) als parameter doorgeven dan krijg je m bij useLoginHook binnen bij token
         // });
-        navigate('/search')
+        navigate("/my-sounds");
     }
 
     function logout() {
-        localStorage.clear();
+        localStorage.removeItem('token');
         //token uit local storage verwijderen
         // console.log("user is logged out");
         //de gebruikersgegegevns uit de state verwijderen
@@ -132,6 +127,7 @@ function AuthContextProvider({children}) {
         loginFunction: login,
         logoutFunction: logout,
     };
+
 
 
     return (
