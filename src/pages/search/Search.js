@@ -110,8 +110,9 @@ export default function Search() {
     return (
         <div className="container-photo-search-engine">
             <div className="position-button-and-results">
-                <form className="form-search-size" onSubmit={handleSubmit}>
+                <form className={`form-search-size ${loading ? 'loading' : ''}`} onSubmit={handleSubmit}>
                     <div className="spinner-container">
+
                         <input
                             className="input-field"
                             type="text"
@@ -121,20 +122,24 @@ export default function Search() {
                         <button className="search-button" type="submit">
                             Search
                         </button>
+                        {loading && (<div className="spinner-overlay">
+                            <Spinner />
+                        </div>
+                        )}
                     </div>
                 </form>
-                <div>
-                    {loading ? (
-                        <Spinner />
-                    ) : (
+                {/*/!*<div className="flexbox-spinner-zoekbalk-container">*!/*/}
+                {/*/!*    {loading ? (*!/*/}
+                {/*        <Spinner />*/}
+                {/*    ) : (*/}
                         <SearchResults
                             results={results}
                             onAddToFavorites={favoriteSong}
                             handleAdminAction={handleAdminAction}/>
-                    )}
+                    {/*)}*/}
                 </div>
             </div>
-        </div>
+        // </div>
     );
 }
 

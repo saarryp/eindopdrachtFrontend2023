@@ -2,15 +2,9 @@ import "./MySounds.css"
 import React, {useEffect, useState} from 'react';
 import LogoutButton from "../../components/logoutButton/LogoutButton";
 
-
-
     export default function MySounds() {
         const [myFavorites, setMyFavorites] = useState([]);
-        //asynchrone functie om alle paginaspecifieke gegevens op te halen
-        //moet k hier nog een getrequest maken naar backend en token meesturen?
-        //door op te vragen met localstorage.getItem()
-        //de data die je terugkrijgt zet je weer in de state
-        //en vanuit de state kun je het weer weergeven op de pagina
+
 
         useEffect(() => {
             const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');

@@ -43,7 +43,9 @@ export default function SearchResults({ results, onAddToFavorites, handleAdminAc
 
 
             ))}
-            <LogoutButton/>
+
+            <LogoutButton className="position-button"/>
+
         </ul>
 
 
