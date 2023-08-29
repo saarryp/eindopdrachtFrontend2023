@@ -16,17 +16,19 @@
 .position-text-and-rest {
     display: flex;
     flex-direction: column;
-    margin: 100px;
-    padding-top: 50px;
+    /*margin: 100px;*/
+    padding-left: 140px;
+    padding-right: 160px;
+    padding-top: 60px
 }
 
 .about-us .yes {
     font-size: 18px;
-    margin: 80px 0 80px 0;
+    margin: 60px 0 60px 0;
 }
 
 .about-us .inspire {
-    margin: 150px 0 130px 0;
+    margin: 80px 0 80px 0;
     font-size: 30px;
     font-weight: bolder;
 }
