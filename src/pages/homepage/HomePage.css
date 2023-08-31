@@ -44,10 +44,11 @@
 
 .admin-link {
     color: white;
+    font-size: 10px;
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 12px;
     display: inline-block;
     position: relative;
     transition: color 0.3s ease;
@@ -56,28 +57,28 @@
 .admin-login {
     color: palegreen;
     margin: 50px;
-    /*border: 2px dotted yellow;*/
+    border: 2px dotted yellow;
 }
-/*.admin-tooltip {*/
-/*    position: relative;*/
-/*    top: -50px; !* Adjust as needed *!*/
-/*    left: 0;*/
-/*    background-color: red;*/
-/*    color: slategrey;*/
-/*    padding: 5px 10px;*/
-/*    border-radius: 4px;*/
-/*    opacity: 0;*/
-/*    visibility: hidden;*/
-/*    transition: opacity 0.3s ease, visibility 0.3s ease;*/
-/*}*/
+.admin-tooltip {
+    position: relative;
+    top: -50px; /* Adjust as needed */
+    left: 0;
+    background-color: red;
+    color: slategrey;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
 /* Add hover effect */
 .admin-link:hover {
-    color: #F4E3B6;
+   color: #F4E3B6;
 }
 
-/* Show tooltip on hover */
-.admin-link:hover + .admin-tooltip {
-    opacity: 1;
-    visibility: visible;
-}
+/*!* Show tooltip on hover *!*/
+/*.admin-link:hover + .admin-tooltip {*/
+/*    opacity: 1;*/
+/*    visibility: visible;*/
+/*}*/
