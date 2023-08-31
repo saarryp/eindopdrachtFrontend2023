@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link} from 'react-router-dom';
 import "./HomePage.css";
 import LoginButton from "../../components/loginButton/LoginButton";
 import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
+
 
 
 export default function Home() {
@@ -23,6 +25,14 @@ export default function Home() {
                         <div className="container-subscribe-button-about">
                             <SubscribeButton/>
                             <LoginButton/>
+                        </div>
+                            <div className="admin-login">
+                                <Link to="/admin-login" className="admin-link">
+                                    Admin Login
+                                </Link>
+                                {/*<span className="admin-tooltip">*/}
+                                {/*    admin Login*/}
+                                {/*</span>*/}
                         </div>
                     </div>
                 </div>

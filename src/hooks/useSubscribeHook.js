@@ -9,10 +9,11 @@ export const useSubscribeHook = () => {
 
     const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
 
-    const subscribe = async (username, email, password) => {
+    const subscribe = async (username, email, password, roles) => {
         console.log("Username:", username);
         console.log("Email:", email);
         console.log("Password:", password);
+
 
         setIsLoading(true);
         setError(null);
@@ -37,7 +38,7 @@ export const useSubscribeHook = () => {
                 username: username,
                 email: email,
                 password: password,
-                role: ["user"],
+                roles: ["user", "admin"],
             });
             console.log(response.data)
 

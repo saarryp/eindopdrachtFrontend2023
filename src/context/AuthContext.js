@@ -6,6 +6,8 @@ import axios from 'axios';
 
 export const AuthContext = createContext({});
 
+
+
 function AuthContextProvider({ children }) {
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
@@ -15,13 +17,14 @@ function AuthContextProvider({ children }) {
 
     console.log('AuthContextProvider rendering ...');
 
+
     useEffect(() => {
         const token = localStorage.getItem('token');
 
         if (token) {
             const decodedToken = jwtDecode(token);
             console.log('Token found');
-            fetchUserData(decodedToken, token);
+           void fetchUserData(decodedToken, token);
         } else {
             setIsAuth((prevState) => ({
                 ...prevState,
@@ -88,22 +91,7 @@ function AuthContextProvider({ children }) {
         navigate('/my-sounds');
     }
 
-
-    function logout() {
-        localStorage.removeItem('token');
-
-        setIsAuth((prevState) => ({
-            ...prevState,
-            isAuthenticated: false,
-            user: null,
-            status: 'done',
-        }));
-
-        console.log('User is logged out');
-        navigate('/');
-    }
-
-    //toevoegen van rol user en admin
+//toevoegen van rol user en admin
     // const userRoles = response.data.roles;
     //const [userRoles, setUserRoles] = useState(userRoles);
     //dan bij Contextdata toevoegen van userRoles: userRoles
@@ -122,6 +110,21 @@ function AuthContextProvider({ children }) {
     //         </div>
     //     );
     // }
+    function logout() {
+        localStorage.removeItem('token');
+
+        setIsAuth((prevState) => ({
+            ...prevState,
+            isAuthenticated: false,
+            user: null,
+            status: 'done',
+        }));
+
+        console.log('User is logged out');
+        navigate('/');
+    }
+
+
 
     const contextData = {
         isAuthenticated: isAuth.isAuthenticated,
