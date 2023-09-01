@@ -47,8 +47,9 @@ const{user} = useContext(AuthContext);
 
 
             ))}
-
-            <LogoutButton className="position-button"/>
+            {/*<div className="button-logout-search">*/}
+            {/*<LogoutButton className="position-logout"/>*/}
+            {/*</div>*/}
 
         </ul>
 

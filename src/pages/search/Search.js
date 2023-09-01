@@ -128,18 +128,12 @@ export default function Search() {
                         )}
                     </div>
                 </form>
-                {/*/!*<div className="flexbox-spinner-zoekbalk-container">*!/*/}
-                {/*/!*    {loading ? (*!/*/}
-                {/*        <Spinner />*/}
-                {/*    ) : (*/}
                         <SearchResults
                             results={results}
                             onAddToFavorites={favoriteSong}
                             handleAdminAction={handleAdminAction}/>
-                    {/*)}*/}
                 </div>
             </div>
-        // </div>
     );
 }
 
