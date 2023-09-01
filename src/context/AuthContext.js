@@ -77,6 +77,7 @@ function AuthContextProvider({ children }) {
         localStorage.setItem('token', userData.accessToken);
         console.log('User is logged in', userData.accessToken);
         // trucje doen met de gegevens in de state zetten:
+        // const [userRoles, setUserRoles] = useState()
         setIsAuth((prevState) => ({
             ...prevState,
             isAuthenticated: true,
@@ -91,6 +92,22 @@ function AuthContextProvider({ children }) {
         navigate('/my-sounds');
     }
 
+    // async function loginAdmin(adminData) {
+    //     localStorage.setItem('token', adminData.accessToken);
+    //     // You can add admin-specific logic here
+    //     setIsAuth((prevState) => ({
+    //         ...prevState,
+    //         isAuthenticated: true,
+    //         user: {
+    //             username: adminData.username,
+    //             email: adminData.email,
+    //             id: adminData.id,
+    //             roles: adminData.roles,
+    //         },
+    //         status: 'done',
+    //     }));
+    //     navigate('/our-sounds');
+    // }
 //toevoegen van rol user en admin
     // const userRoles = response.data.roles;
     //const [userRoles, setUserRoles] = useState(userRoles);
@@ -129,6 +146,7 @@ function AuthContextProvider({ children }) {
     const contextData = {
         isAuthenticated: isAuth.isAuthenticated,
         user: isAuth.user,
+        userRole: isAuth.user ? isAuth.user.roles[0] : null,
         loginFunction: login,
         logoutFunction: logout,
     };

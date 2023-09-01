@@ -11,7 +11,7 @@ export default function Navbar() {
                     <p className="subtitle">what is your favorite tune?</p>
                 </div>
                 <div className="nav-links-container">
-                    <NavLink exact to="/" activeClassName="active">Home</NavLink>
+                    <NavLink exact="true" to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/about-us" activeClassName="active">About Us</NavLink>
                     <NavLink to="/our-sounds" activeClassName="active">Our Sounds</NavLink>
                     <NavLink to="/search" activeClassName="active">Search</NavLink>

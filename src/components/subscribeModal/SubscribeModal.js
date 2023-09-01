@@ -3,11 +3,12 @@ import './SubscribeModal.css';
 import {useSubscribeHook} from "../../hooks/useSubscribeHook";
 import {useNavigate} from "react-router-dom";
 
-const SubscribeModal = ({closeModal}) => {
+const SubscribeModal = ({closeModal, role}) => {
 
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [selectedRole, setSelectedRole] = useState(role)
     const [isStillLoading, setIsStillLoading] = useState(false);
     const {subscribe, error, isSubscribed} = useSubscribeHook();
 
@@ -19,7 +20,8 @@ const SubscribeModal = ({closeModal}) => {
         setIsStillLoading(true)
 
 
-        await subscribe(username, email, password, ['user']);
+
+        await subscribe(username, email, password, selectedRole);
         setIsStillLoading(false)
 
         if (isSubscribed) {
@@ -61,9 +63,7 @@ const SubscribeModal = ({closeModal}) => {
                         className={`subscription-box ${isSubscribed ? 'subscribed' : ''}`}
                         disabled={isSubscribed}>
                         {isStillLoading ? 'Loading...' : isSubscribed ? 'Welcome!  Your registration has been successfully completed. You can log in now.' : 'Register' }
-                        {/*<Link to naar inlogbutton homepage?*/}
                         {error && <div className= "error-message">{error}</div> }
-                    {/*    Subscribe*/}
                     </button>
                 </form>
             </div>

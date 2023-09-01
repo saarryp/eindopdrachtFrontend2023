@@ -1,11 +1,16 @@
 
 
 import "./OurSounds.css"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import {AuthContext} from "../../context/AuthContext";
 
 
 export default function OurSounds() {
- const [ourFavorites, setOurFavorites] =useState([]);
+
+    const {user} = useContext(AuthContext);
+    console.log(user)
+
+    const [ourFavorites, setOurFavorites] =useState([]);
 
     useEffect(() => {
         const storedOurFavorites = JSON.parse(localStorage.getItem('ourFavorites') || '[]');
@@ -44,9 +49,10 @@ return (
                             </a>
                             {" "}
                             <div className="border-for-delete">
+                                {(user.roles[0] === 'ROLE_ADMIN') &&
                                 <button className="delete-button" onClick={() => handleRemoveOurFavorite(favorite)}>
                                     delete song
-                                </button>
+                                </button>}
                             </div>
                         </li>
                     );

@@ -13,6 +13,7 @@ export const useSubscribeHook = () => {
         console.log("Username:", username);
         console.log("Email:", email);
         console.log("Password:", password);
+        console.log("roles:", roles)
 
 
         setIsLoading(true);
@@ -38,7 +39,7 @@ export const useSubscribeHook = () => {
                 username: username,
                 email: email,
                 password: password,
-                roles: ["user", "admin"],
+                roles: roles,
             });
             console.log(response.data)
 
@@ -49,6 +50,7 @@ export const useSubscribeHook = () => {
                 setIsSubscribed(true);
                 }
         } catch (error) {
+            console.error(error)
             if (error.response) {
                 if (error.response.status === 400 && error.response.data.message === "Username already exists" ) {
                     console.log("setting error message. Username already exist")

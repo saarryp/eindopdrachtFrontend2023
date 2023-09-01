@@ -1,9 +1,12 @@
 
 import React from "react";
 import LogoutButton from "../logoutButton/LogoutButton";
+import {AuthContext} from "../../context/AuthContext";
+import {useContext} from "react";
 
 export default function SearchResults({ results, onAddToFavorites, handleAdminAction }) {
-
+const{user} = useContext(AuthContext);
+    console.log(user)
     return (
         <>
         <ul className="ul-position ul-albums">
@@ -25,9 +28,10 @@ export default function SearchResults({ results, onAddToFavorites, handleAdminAc
                                         <a href={track.url} target="_blank" rel="noreferrer">
                                             {track.name}
                                         </a>
+                                        {(user.roles[0] === 'ROLE_ADMIN') &&
                                         <button className="admin-button" onClick={() => handleAdminAction(track)}>
                                             admin
-                                        </button>
+                                        </button>}
                                     </div>
 
                                     <button className="like-button" onClick={() => onAddToFavorites(track)}>

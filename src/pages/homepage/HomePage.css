@@ -42,43 +42,57 @@
     /*border: 2px dotted blueviolet;*/
 }
 
-.admin-link {
-    color: white;
-    font-size: 10px;
-    font-family: 'Inter', sans-serif;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 12px;
-    display: inline-block;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.admin-login {
-    color: palegreen;
-    margin: 50px;
-    border: 2px dotted yellow;
-}
-.admin-tooltip {
-    position: relative;
-    top: -50px; /* Adjust as needed */
-    left: 0;
-    background-color: red;
-    color: slategrey;
-    padding: 5px 10px;
-    border-radius: 4px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Add hover effect */
-.admin-link:hover {
-   color: #F4E3B6;
-}
-
-/*!* Show tooltip on hover *!*/
-/*.admin-link:hover + .admin-tooltip {*/
-/*    opacity: 1;*/
-/*    visibility: visible;*/
+/*.admin-link {*/
+/*    color: whitesmoke;*/
+/*    font-size: 10px;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*    text-decoration: none;*/
+/*    font-weight: bold;*/
+/*    margin-top: 12px;*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    transition: color 0.3s ease;*/
 /*}*/
+
+.admin-button-container {
+    color: #121111;
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    background-color: #F4E3B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 10px;
+    border: 2px black;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+/*.admin-login {*/
+/*    color: palegreen;*/
+/*    margin: 50px;*/
+/*    border: 2px dotted yellow;*/
+/*}*/
+/*.admin-tooltip {*/
+/*    position: relative;*/
+/*    top: -50px; !* Adjust as needed *!*/
+/*    left: 0;*/
+/*    background-color: red;*/
+/*    color: slategrey;*/
+/*    padding: 5px 10px;*/
+/*    border-radius: 4px;*/
+/*    opacity: 0;*/
+/*    visibility: hidden;*/
+/*    transition: opacity 0.3s ease, visibility 0.3s ease;*/
+/*}*/
+
+/*!* Add hover effect *!*/
+/*.admin-link:hover {*/
+/*   color: #F4E3B6;*/
+/*}*/
+
+/*!*!* Show tooltip on hover *!*!*/
+/*!*.admin-link:hover + .admin-tooltip {*!*/
+/*!*    opacity: 1;*!*/
+/*!*    visibility: visible;*!*/
+/*!*}*!*/

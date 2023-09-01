@@ -20,7 +20,7 @@ import SubscribeModal from '../../components/subscribeModal/SubscribeModal'
                 >
                    Register
                 </button>
-                {modalOpen && <SubscribeModal closeModal={() => setModalOpen(false)} />}
+                {modalOpen && <SubscribeModal role={["user"]} closeModal={() => setModalOpen(false)} />}
             </div>
         );
     };

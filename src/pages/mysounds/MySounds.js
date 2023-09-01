@@ -57,7 +57,6 @@ import LogoutButton from "../../components/logoutButton/LogoutButton";
             <div className="position-button">
                 <div className="button-logout">
                 <LogoutButton/>
-                {/*<button className="button-logout">uitloggen</button>*/}
                 </div>
              </div>
         </div>

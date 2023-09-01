@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
 import "./HomePage.css";
 import LoginButton from "../../components/loginButton/LoginButton";
 import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
-import AdminLoginButton from "../../components/adminLoginModal/AdminLoginModal";
+// import AdminLoginButton from "../../components/adminLoginModal/AdminLoginModal";
 
 
 
@@ -27,17 +26,6 @@ export default function Home() {
                             <SubscribeButton/>
                             <LoginButton/>
                         </div>
-                            {/*<div className="admin-login">*/}
-                            {/*    <span className="admin-link">*/}
-                            {/*    <AdminLoginButton/>*/}
-                            {/*    </span>*/}
-                                <Link to="/admin-login" className="admin-link">
-                                  Admin
-                                </Link>
-                                {/*<span className="admin-tooltip">*/}
-                                {/*    admin Login*/}
-                                {/*</span>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
