@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
+import {checkTokenValidity} from "../helper/checkTokenValidity";
 
 export const AuthContext = createContext({});
 
@@ -19,12 +20,12 @@ function AuthContextProvider({ children }) {
 
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const storedToken = localStorage.getItem('token');
 
-        if (token) {
-            const decodedToken = jwtDecode(token);
+        if (storedToken && checkTokenValidity(storedToken)) {
+            const decodedToken = jwtDecode(storedToken);
             console.log('Token found');
-           void fetchUserData(decodedToken, token);
+           void fetchUserData(decodedToken, storedToken);
         } else {
             setIsAuth((prevState) => ({
                 ...prevState,

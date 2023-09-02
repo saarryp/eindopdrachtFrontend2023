@@ -25,7 +25,7 @@ const SubscribeModal = ({closeModal, role}) => {
         setIsStillLoading(false)
 
         if (isSubscribed) {
-            navigate('/')
+       navigate('/')
         }
     }
 
