@@ -55,7 +55,7 @@ import LogoutButton from "../../components/logoutButton/LogoutButton";
                 )}
             </ol>
             <div className="position-button">
-                <div className="button-logout2">
+                <div className="button-logout">
                 <LogoutButton/>
                 </div>
              </div>

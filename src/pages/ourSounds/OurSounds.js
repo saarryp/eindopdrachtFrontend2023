@@ -3,6 +3,7 @@
 import "./OurSounds.css"
 import React, { useEffect, useState, useContext } from 'react';
 import {AuthContext} from "../../context/AuthContext";
+import LogoutButton from "../../components/logoutButton/LogoutButton";
 
 
 export default function OurSounds() {
@@ -61,9 +62,11 @@ return (
                 <p className="list-items">No favorites found.</p>
             )}
         </ol>
-        {/*<div className="position-button">*/}
-        {/*    <button className="button-logout">uitloggen</button>*/}
-        {/*</div>*/}
+        <div className="position-button-our-sounds">
+            <div className="button-logout-our-sounds">
+                <LogoutButton/>
+            </div>
+        </div>
     </div>
 );
 }
