@@ -180,10 +180,6 @@
     margin-bottom: 15px;
 }
 
-/*.title {*/
-/*    font-size: 21px;*/
-/*}*/
-
 h2 {
     display: flex;
     justify-content: center;
@@ -198,7 +194,6 @@ h2 {
 }
 
 .admin-button {
-    /*display: ${isAdmin ? "inline-block" : "none"}*/
     color: black;
     background-color: #FAF8E7;
     border-radius: 5px;
@@ -216,6 +211,7 @@ h2 {
     border-radius: 5px;
     width: 40px;
     height: 20px;
+    margin-left:5px;
 }
 
 .tracks-not-found {

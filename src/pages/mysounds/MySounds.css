@@ -88,7 +88,8 @@ ol {
     color: black;
     background-color: #F4E3B6;
     font-family: 'Inter', sans-serif;
-    /*width: 100px;*/
+    padding: 5px;
+    border-radius: 4px;
     height: 30px;
     text-align: center;
     margin-left: 20px;
