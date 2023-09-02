@@ -38,7 +38,6 @@ import LogoutButton from "../../components/logoutButton/LogoutButton";
                                     rel="noopener noreferrer"
                                 >
                                     <p className="track-name">{favorite.name }</p>
-
                                     <p>{favorite.artist.name}</p>
                                 </a>
                                 {" "}

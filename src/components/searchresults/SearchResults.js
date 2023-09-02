@@ -1,12 +1,12 @@
 
 import React from "react";
-import LogoutButton from "../logoutButton/LogoutButton";
 import {AuthContext} from "../../context/AuthContext";
 import {useContext} from "react";
 
 export default function SearchResults({ results, onAddToFavorites, handleAdminAction }) {
 const{user} = useContext(AuthContext);
     console.log(user)
+
     return (
         <>
         <ul className="ul-position ul-albums">
@@ -44,16 +44,8 @@ const{user} = useContext(AuthContext);
                         <p className="tracks-not-found">No tracks found for this album.</p>
                     )}
                 </li>
-
-
             ))}
-            {/*<div className="button-logout-search">*/}
-            {/*<LogoutButton className="position-logout"/>*/}
-            {/*</div>*/}
-
         </ul>
-
-
         </>
     );
 }
