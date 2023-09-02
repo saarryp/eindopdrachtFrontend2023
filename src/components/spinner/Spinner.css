@@ -1,15 +1,13 @@
-.spinner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    /*border: 2px dotted greenyellow;*/
-}
+/*.spinner-container {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 200px;*/
+
+/*    border: 2px dotted greenyellow;*/
+/*}*/
 
 .spinner-border {
-    /*border: 3px solid #b59b2a;*/
-    /*border-top: 3px solid #F4E3B6;*/
-    /*border-radius: 50%;*/
     position: relative;
     width: 200px;
     height: 200px;

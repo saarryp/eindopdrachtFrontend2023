@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: flex-start;
+    align-items: center;
     background-image: url("../../assets/ErykahBadu.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,9 +15,11 @@
 }
 
 .form-search-size {
+    align-self: flex-start;
     margin: 50px;
     width: 80%;
     max-width: 600px;
+    min-width: 600px;
 }
 
 .form-search-size form{
@@ -27,20 +31,29 @@
     margin: auto;
     padding: 20px;
 }
-.input-field {
-    height:60px;
-    font-family: 'Inter', sans-serif;
-    font-size: 25px;
-    width: 100%;
-    max-width: 350px;
-    margin-left: 20px;
-}
+
 .spinner-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-bottom: 25px;
-    /*border: 2px dotted deeppink;*/
+    position: absolute;
+    width: 750px;
+}
+
+.input-field {
+    max-width: 275px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.input-field,
+.search-button {
+    height:60px;
+    font-size: 20px;
+    width: 100%;
+    max-width: 450px;
 }
 
 .search-button {
@@ -49,14 +62,11 @@
     padding: 15px 30px;
     background-color: #B89437;
     color: white;
-    border-radius: 4px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 25px;
-    width: 100%;
-    max-width: 200px;
-    border: none !important;
-    /*border: 2px dotted yellow;*/
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 .ul-position {
@@ -85,11 +95,9 @@
     font-family: 'Inter', sans-serif;
     color: #121111;
     list-style: none;
-    /*border: 3px solid #B89437;*/
 }
 
 .ul-albums {
-    /*border: 2px solid greenyellow;*/
     padding: 50px;
     overflow-x: auto;
     display: flex;
