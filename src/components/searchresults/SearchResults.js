@@ -4,7 +4,7 @@ import {AuthContext} from "../../context/AuthContext";
 import {useContext} from "react";
 
 export default function SearchResults({ results, onAddToFavorites, handleAdminAction }) {
-const{user} = useContext(AuthContext);
+const { user } = useContext(AuthContext);
     console.log(user)
 
     return (

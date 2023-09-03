@@ -1,9 +1,11 @@
 import "./MySounds.css"
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import LogoutButton from "../../components/logoutButton/LogoutButton";
+import {AuthContext} from "../../context/AuthContext";
 
-    export default function MySounds() {
+export default function MySounds() {
         const [myFavorites, setMyFavorites] = useState([]);
+        const { user } = useContext(AuthContext);
 
 
         useEffect(() => {
@@ -41,11 +43,13 @@ import LogoutButton from "../../components/logoutButton/LogoutButton";
                                     <p>{favorite.artist.name}</p>
                                 </a>
                                 {" "}
+                                {(user.roles[0] === 'ROLE_USER') && (
                                 <div className="border-for-delete">
                                     <button className="delete-button" onClick={() => handleRemoveMyFavorite(favorite)}>
                                         delete song
                                     </button>
                                 </div>
+                                    )}
                             </li>
                         );
                     })
