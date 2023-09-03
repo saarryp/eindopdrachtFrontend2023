@@ -33,10 +33,10 @@ const{user} = useContext(AuthContext);
                                             admin
                                         </button>}
                                     </div>
-
+                                    {(user.roles[0] === 'ROLE_USER') &&
                                     <button className="like-button" onClick={() => onAddToFavorites(track)}>
                                         Like
-                                    </button>
+                                    </button>}
                                 </li>
                             ))}
                         </ul>
