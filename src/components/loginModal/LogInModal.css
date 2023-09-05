@@ -80,6 +80,17 @@
     border-bottom: 2px solid #121111;
 }
 
+.error-message-login {
+    width: 400px;
+    height: 100px;
+    padding-top: 40px;
+    background-color: #FFFFFF;
+    border: 2px solid #121111;
+    color: #121111;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
 .close-login-button {
     background-color: transparent;
     border: none;

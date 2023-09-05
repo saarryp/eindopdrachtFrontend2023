@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './LogInModal.css';
 import '../../hooks/useLoginHook';
@@ -7,7 +7,8 @@ import axios from "axios";
 
 const LoginModal = ({isOpen, onClose, onLogin}) => {
         const {handleSubmit, register} = useForm();
-        const { loginFunction } = useContext(AuthContext);
+        const { loginFunction } = useContext(AuthContext)
+        const [errormessage, setErrorMessage] = useState('');
 
         const onSubmit = async (data) => {
             console.log(data);
@@ -24,10 +25,13 @@ const LoginModal = ({isOpen, onClose, onLogin}) => {
 
                 console.log(response);
                 loginFunction(response.data);
+                setErrorMessage('');
+
+                onClose()
             } catch (e) {
                 console.error(e)
+                setErrorMessage("Incorrect username or password. Please try again.");
             }
-            onClose();
         }
 
         if (!isOpen) {
@@ -51,6 +55,7 @@ const LoginModal = ({isOpen, onClose, onLogin}) => {
                         <button className="login-link" type="submit">
                             Login
                         </button>
+                        {errormessage && <p className="error-message-login">{errormessage}</p>}
                     </form>
                     <button className="close-login-button" onClick={onClose}>
                         &times;

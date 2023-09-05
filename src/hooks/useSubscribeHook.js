@@ -49,6 +49,7 @@ export const useSubscribeHook = () => {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 setIsSubscribed(true);
                 }
+           // toepassen om m af te sluiten en naar homepagina login button te gaan  usenavigate
         } catch (error) {
             console.error(error)
             if (error.response) {

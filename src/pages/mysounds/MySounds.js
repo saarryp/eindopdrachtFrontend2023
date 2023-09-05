@@ -43,13 +43,13 @@ export default function MySounds() {
                                     <p>{favorite.artist.name}</p>
                                 </a>
                                 {" "}
-                                {(user.roles[0] === 'ROLE_USER') && (
+                                {(user.roles[0] === 'ROLE_USER') &&
                                 <div className="border-for-delete">
                                     <button className="delete-button" onClick={() => handleRemoveMyFavorite(favorite)}>
                                         delete song
                                     </button>
-                                </div>
-                                    )}
+                                </div>}
+
                             </li>
                         );
                     })
