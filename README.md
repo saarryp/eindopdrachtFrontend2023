@@ -5,25 +5,26 @@ Soul Sounds
 - [About](#about)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Shout out to](#contributing)
+
 
 ## About
 ![Project Screenshot](src/assets/about-the-project.png)
 
 ## About The Project
 
-This project is a final assignment for front-end bootcamp at the Novi University of Applied Science. The project was created with the help of API last.fm (https://www.last.fm/) and three photos that are to be found on internet.
+This project is a final assignment for front-end bootcamp at the Novi University of Applied Science. 
+The project was created by using the API last.fm (https://www.last.fm/).
 
 This application is for all disco-funk-jazz-gospel-house-heads that like to be inspired by fellow music-lovers. What is the deal?
-say you are stranded at a deserted island and you have to pick 10 favorite tunes in that music-genre. Those are the only songs you can listen to. What tracks would you pick? It is way harder than you think to limit yourself. That in itself is a challenge, right?
+Say you are stranded at a deserted island and you can only pick 10 favorite tunes. Or the DJ for that night with only 10 songs to be spinned. You have to chose wisely. What tracks would you pick? It is way harder than you think to limit yourself. That in itself is a challenge, right?
 The goal is to limit yourself and to inspire other people with artists or tracks that are rare or just simply a standard banger. Just because algorithms often don't bring you songs that might inspire you, just what is often listened to. A sort a crate digging to engage your curiosity.
 
 ### Installation
 
-To run this web apllication make sure that you have an IDE such as Webstorm to compile the code.
+To run this web application make sure that you have an IDE such as Webstorm to compile the code.
 
-New at this?
+### New at this?
 
 1. Download the application
     Via a zip file
@@ -42,22 +43,22 @@ Installing via a Git link
 2. Go directly to your IDE of choice. In this example WebStorm is used (Jet Brains IDE) . Once opened the IDE, go to Projects/Get from VCS.
 3. Paste the link you copied into the URL bar and click on Open.
 
-Not new at this? then just follow these steps:
+### Not new at this? then just follow these steps:
 
 1. Clone the repository to your local machine:
 
    ```bash
    git clone https://github.com/saarryp/eindopdrachtFrontend2023
    
-2. install project dependencies using npm
+2. Install project dependencies using npm
 
 npm install
 
-3. start development server
+3. Start development server
 
    npm start
 
-4. open your webbrowser and go to http://localhost:3000 to view the application
+4. Open your webbrowser and go to http://localhost:3000 to view the application
 
 
 NOTE: YOU CAN MAKE AN ACCOUNT FOR 1 HOUR. IT IS RUNNING AT A BACKEND FROM SCHOOL, SO LIMITED TIME-WISE...
