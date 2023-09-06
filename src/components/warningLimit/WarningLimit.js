@@ -2,8 +2,7 @@ import React from "react"
 import "./WarningLimit.css";
 
 
-function WarningLimit({ isOpen, onClose }) {
-
+function WarningLimit({isOpen, onClose}) {
 
     return (
         <div className={`favorite-warning-modal ${isOpen ? 'open' : ''}`}>

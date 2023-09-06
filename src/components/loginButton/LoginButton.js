@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './LoginButton.css';
 import LoginModal from '../../components/loginModal/LogInModal';
 
 
-
-const ButtonLogIn = ({ onLogin }) => {
+const ButtonLogIn = ({onLogin}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
 
@@ -21,7 +20,7 @@ const ButtonLogIn = ({ onLogin }) => {
             <button className="login-button" onClick={openModal}>
                 Login
             </button>
-            <LoginModal isOpen={modalOpen} onClose={closeModal} onLogin={onLogin}  />
+            <LoginModal isOpen={modalOpen} onClose={closeModal} onLogin={onLogin}/>
         </div>
     );
 };

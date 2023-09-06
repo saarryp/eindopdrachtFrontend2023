@@ -6,8 +6,8 @@ const Spinner = () => {
     return (
         <div className="spinner-container">
             <div className="spinner-border">
-        <img src={spinnerImage} alt="Loading" className="spinner-image"/>
-        </div>
+                <img src={spinnerImage} alt="Loading" className="spinner-image"/>
+            </div>
         </div>
 
 

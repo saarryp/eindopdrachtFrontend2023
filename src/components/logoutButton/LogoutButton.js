@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import React, {useContext} from 'react';
+import {AuthContext} from '../../context/AuthContext';
+import {useNavigate} from 'react-router-dom';
 import './LogoutButton.css';
 
 function LogoutButton() {
-    const { logoutFunction } = useContext(AuthContext);
+    const {logoutFunction} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -14,9 +14,9 @@ function LogoutButton() {
 
     return (
         <div className="position-button">
-        <button onClick={handleLogout} className="button-logout">
-            Logout
-        </button>
+            <button onClick={handleLogout} className="button-logout">
+                Logout
+            </button>
         </div>
     );
 }

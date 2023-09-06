@@ -4,24 +4,20 @@ import {AuthContext} from "../context/AuthContext";
 
 function useLoginHook(user, password) {
 
-     const {loginFunction} = useContext(AuthContext);
-
+    const {loginFunction} = useContext(AuthContext);
 
     async function logUserIn(username, password) {
         try {
             const response = await axios.post(
                 'https://frontend-educational-backend.herokuapp.com/api/auth/signin',
 
-            {
+                {
                     username: username,
-
                     password: password,
-
-            }
+                }
             );
-
             loginFunction(response.data.accessToken)
-        } catch(e) {
+        } catch (e) {
             console.error(e)
         }
     }

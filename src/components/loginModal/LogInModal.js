@@ -7,7 +7,7 @@ import axios from "axios";
 
 const LoginModal = ({isOpen, onClose, onLogin}) => {
         const {handleSubmit, register} = useForm();
-        const { loginFunction } = useContext(AuthContext)
+        const {loginFunction} = useContext(AuthContext)
         const [errormessage, setErrorMessage] = useState('');
 
         const onSubmit = async (data) => {

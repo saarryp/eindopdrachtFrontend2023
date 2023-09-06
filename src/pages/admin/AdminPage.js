@@ -13,15 +13,16 @@ function AdminLoginPage() {
 
         <div className="container-admin">
             <div className="center-button">
-            <button
-                onClick={openModal}
-                className={`subscribe-button ${modalOpen ? 'active' : ''}`}
-            >
-               Admin Register
-            </button>
+                <button
+                    onClick={openModal}
+                    className={`subscribe-button ${modalOpen ? 'active' : ''}`}
+                >
+                    Admin Register
+                </button>
             </div>
-            {modalOpen && <SubscribeModal role={["admin"]} closeModal={() => setModalOpen(false)} />}
+            {modalOpen && <SubscribeModal role={["admin"]} closeModal={() => setModalOpen(false)}/>}
         </div>
     );
 }
+
 export default AdminLoginPage

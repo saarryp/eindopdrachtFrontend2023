@@ -1,6 +1,5 @@
-
-import React, { createContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {createContext, useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import {checkTokenValidity} from "../helper/checkTokenValidity";
@@ -8,8 +7,7 @@ import {checkTokenValidity} from "../helper/checkTokenValidity";
 export const AuthContext = createContext({});
 
 
-
-function AuthContextProvider({ children }) {
+function AuthContextProvider({children}) {
     const [isAuth, setIsAuth] = useState({
         isAuthenticated: false,
         user: null,
@@ -17,14 +15,12 @@ function AuthContextProvider({ children }) {
     });
 
 
-
-
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
 
         if (storedToken && checkTokenValidity(storedToken)) {
             const decodedToken = jwtDecode(storedToken);
-           void fetchUserData(decodedToken, storedToken);
+            void fetchUserData(decodedToken, storedToken);
         } else {
             setIsAuth((prevState) => ({
                 ...prevState,
@@ -94,7 +90,6 @@ function AuthContextProvider({ children }) {
         }));
         navigate('/');
     }
-
 
 
     const contextData = {

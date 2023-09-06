@@ -1,11 +1,12 @@
 .container-about-photo {
-    height:100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     position: relative;
     justify-content: flex-end;
     background-color: #121111;
 }
+
 .image-element-au {
     background-image: url("../../assets/vierkantJillScott.jpeg");
     background-size: cover;

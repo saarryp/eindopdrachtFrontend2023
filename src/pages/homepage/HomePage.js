@@ -2,9 +2,6 @@ import React from 'react';
 import "./HomePage.css";
 import LoginButton from "../../components/loginButton/LoginButton";
 import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
-// import AdminLoginButton from "../../components/adminLoginModal/AdminLoginModal";
-
-
 
 export default function Home() {
     return (

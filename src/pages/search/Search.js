@@ -1,4 +1,3 @@
-
 import "./Search.css";
 import React, {useState} from "react";
 import axios from "axios";
@@ -53,7 +52,6 @@ export default function Search() {
     };
 
 
-
     const handleAdminAction = (track) => {
         const currentOurFavorites = JSON.parse(localStorage.getItem('ourFavorites') || '[]');
         const isOurSongLiked = currentOurFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
@@ -96,7 +94,7 @@ export default function Search() {
                 }
             }
 
-            setResults({ albummatches: { album: uniqueAlbums } });
+            setResults({albummatches: {album: uniqueAlbums}});
             setQuery('')
         } catch (err) {
             console.log(err);
@@ -107,29 +105,29 @@ export default function Search() {
 
     return (
         <div className="container-photo-search-engine">
-                <WarningLimit isOpen={isWarningModalOpen} onClose={closeWarningModal} />
-                <form className={`form-search-size ${loading ? 'loading' : ''}`} onSubmit={handleSubmit}>
-                    <div className="spinner-container">
-                        <input
-                            className="input-field"
-                            type="text"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <button className="search-button" type="submit">
-                            Search
-                        </button>
-                        {loading && (<div className="spinner-overlay">
-                            <Spinner />
+            <WarningLimit isOpen={isWarningModalOpen} onClose={closeWarningModal}/>
+            <form className={`form-search-size ${loading ? 'loading' : ''}`} onSubmit={handleSubmit}>
+                <div className="spinner-container">
+                    <input
+                        className="input-field"
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <button className="search-button" type="submit">
+                        Search
+                    </button>
+                    {loading && (<div className="spinner-overlay">
+                            <Spinner/>
                         </div>
-                        )}
-                    </div>
-                </form>
-                        <SearchResults
-                            results={results}
-                            onAddToFavorites={favoriteSong}
-                            handleAdminAction={handleAdminAction}/>
+                    )}
                 </div>
+            </form>
+            <SearchResults
+                results={results}
+                onAddToFavorites={favoriteSong}
+                handleAdminAction={handleAdminAction}/>
+        </div>
     );
 }
 

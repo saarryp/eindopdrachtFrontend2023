@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
@@ -6,14 +6,16 @@ import {useNavigate} from "react-router-dom";
 export const useSubscribeHook = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const[isSubscribed, setIsSubscribed] = useState(false);
+    const [isSubscribed, setIsSubscribed] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(true);
     const navigate = useNavigate();
 
     const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
 
-    const closeSuccesModal = () => {setIsModalOpen(false);
-    navigate('/');}
+    const closeSuccesModal = () => {
+        setIsModalOpen(false);
+        navigate('/');
+    }
 
     const subscribe = async (username, email, password, roles) => {
         setIsLoading(true);
@@ -42,19 +44,19 @@ export const useSubscribeHook = () => {
 
             if (response.status !== 200) {
                 setError(response.data.error);
-                } else {
+            } else {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 setIsSubscribed(true);
                 closeSuccesModal();
-                }
-           // toepassen om m af te sluiten en naar homepagina login button te gaan  usenavigate
+            }
+
         } catch (error) {
             console.error(error)
             if (error.response) {
-                if (error.response.status === 400 && error.response.data.message === "Username already exists" ) {
+                if (error.response.status === 400 && error.response.data.message === "Username already exists") {
                     setError("Username already exists. Please choose a different username.");
                 } else {
-                setError(error.response.data.error);
+                    setError(error.response.data.error);
                 }
 
             } else if (error.message === "custom_error_condition") {
@@ -69,6 +71,5 @@ export const useSubscribeHook = () => {
         }
     };
 
-    // Return the variables from the hook
-    return { subscribe, isLoading, error, isSubscribed, isModalOpen};
+    return {subscribe, isLoading, error, isSubscribed, isModalOpen};
 };
