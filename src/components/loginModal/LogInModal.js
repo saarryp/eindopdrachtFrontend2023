@@ -11,8 +11,6 @@ const LoginModal = ({isOpen, onClose, onLogin}) => {
         const [errormessage, setErrorMessage] = useState('');
 
         const onSubmit = async (data) => {
-            console.log(data);
-
             try {
                 const response = await axios.post(
                     'https://frontend-educational-backend.herokuapp.com/api/auth/signin',
@@ -22,8 +20,6 @@ const LoginModal = ({isOpen, onClose, onLogin}) => {
 
                     }
                 );
-
-                console.log(response);
                 loginFunction(response.data);
                 setErrorMessage('');
 

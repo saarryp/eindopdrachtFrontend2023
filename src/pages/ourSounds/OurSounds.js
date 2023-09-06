@@ -9,8 +9,6 @@ import LogoutButton from "../../components/logoutButton/LogoutButton";
 export default function OurSounds() {
 
     const {user} = useContext(AuthContext);
-    console.log(user)
-
     const [ourFavorites, setOurFavorites] =useState([]);
 
     useEffect(() => {
@@ -31,10 +29,8 @@ return (
             {ourFavorites.length > 0 ? (
                 ourFavorites.map((favorite, index) => {
                     if (!favorite || !favorite.name || !favorite.artist) {
-                        console.log("Invalid favorite data:", favorite);
                         return null;
                     }
-                    console.log("OurFavorite:", favorite.name, favorite.artist);
                     return (
                         <li key={index} className="list-items">
                                 <span className="list-item-number">

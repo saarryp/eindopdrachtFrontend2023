@@ -6,7 +6,6 @@ function AdminLoginPage() {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
-        console.log('opening modal')
         setModalOpen(true);
     }
 

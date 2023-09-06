@@ -16,17 +16,9 @@ export const useSubscribeHook = () => {
     navigate('/');}
 
     const subscribe = async (username, email, password, roles) => {
-        console.log("Username:", username);
-        console.log("Email:", email);
-        console.log("Password:", password);
-        console.log("roles:", roles)
-
-
         setIsLoading(true);
         setError(null);
         setIsSubscribed(false);
-
-            console.log(email)
 
         if (username.length < 6 || password.length < 6) {
             setError("Oooops, your username and password must be at least 6 characters long")
@@ -47,7 +39,6 @@ export const useSubscribeHook = () => {
                 password: password,
                 roles: roles,
             });
-            console.log(response.data)
 
             if (response.status !== 200) {
                 setError(response.data.error);
@@ -61,7 +52,6 @@ export const useSubscribeHook = () => {
             console.error(error)
             if (error.response) {
                 if (error.response.status === 400 && error.response.data.message === "Username already exists" ) {
-                    console.log("setting error message. Username already exist")
                     setError("Username already exists. Please choose a different username.");
                 } else {
                 setError(error.response.data.error);

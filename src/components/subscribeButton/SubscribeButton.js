@@ -7,7 +7,6 @@ import SubscribeModal from '../../components/subscribeModal/SubscribeModal'
         const [modalOpen, setModalOpen] = useState(false);
 
         const openModal = () => {
-            console.log('opening modal')
             setModalOpen(true);
         }
 

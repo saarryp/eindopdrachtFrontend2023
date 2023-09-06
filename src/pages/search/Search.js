@@ -33,8 +33,6 @@ export default function Search() {
 
 
     const favoriteSong = (track) => {
-        console.log(track);
-
         const currentFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         const isSongLiked = currentFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
 
@@ -52,14 +50,11 @@ export default function Search() {
         }
 
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-        console.log(updatedFavorites);
     };
 
 
 
     const handleAdminAction = (track) => {
-        console.log("Admin action for:", track.name, track.artist);
-
         const currentOurFavorites = JSON.parse(localStorage.getItem('ourFavorites') || '[]');
         const isOurSongLiked = currentOurFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
 
@@ -77,7 +72,6 @@ export default function Search() {
         }
 
         localStorage.setItem('ourFavorites', JSON.stringify(updatedOurFavorites));
-        console.log(updatedOurFavorites);
     };
 
     let handleSubmit = async (e) => {

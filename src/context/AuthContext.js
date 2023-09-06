@@ -16,7 +16,7 @@ function AuthContextProvider({ children }) {
         status: 'pending',
     });
 
-    console.log('AuthContextProvider rendering ...');
+
 
 
     useEffect(() => {
@@ -24,23 +24,18 @@ function AuthContextProvider({ children }) {
 
         if (storedToken && checkTokenValidity(storedToken)) {
             const decodedToken = jwtDecode(storedToken);
-            console.log('Token found');
            void fetchUserData(decodedToken, storedToken);
         } else {
             setIsAuth((prevState) => ({
                 ...prevState,
                 status: 'done',
             }));
-            console.log('No token found');
         }
     }, []);
 
     const navigate = useNavigate();
 
-    console.log('isAuth', isAuth);
-
     async function fetchUserData(decodedToken, token) {
-        console.log(decodedToken)
         try {
             const response = await axios.get(
                 `https://frontend-educational-backend.herokuapp.com/api/user`,
@@ -51,8 +46,6 @@ function AuthContextProvider({ children }) {
                     },
                 }
             );
-
-            console.log('Fetched user data:', response.data);
 
             setIsAuth((prevState) => ({
                 ...prevState,
@@ -76,7 +69,6 @@ function AuthContextProvider({ children }) {
 
     function login(userData) {
         localStorage.setItem('token', userData.accessToken);
-        console.log('User is logged in', userData.accessToken);
         setIsAuth((prevState) => ({
             ...prevState,
             isAuthenticated: true,
@@ -100,8 +92,6 @@ function AuthContextProvider({ children }) {
             user: null,
             status: 'done',
         }));
-
-        console.log('User is logged out');
         navigate('/');
     }
 

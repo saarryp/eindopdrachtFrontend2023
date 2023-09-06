@@ -20,15 +20,11 @@ function useLoginHook(user, password) {
             }
             );
 
-            console.log('Token', response.data.accessToken );
-
             loginFunction(response.data.accessToken)
         } catch(e) {
             console.error(e)
         }
     }
-
-    console.log("logUserIn function:", )
 
     return (
         {logUserIn}

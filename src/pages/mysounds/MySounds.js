@@ -26,10 +26,8 @@ export default function MySounds() {
                 {myFavorites.length > 0 ? (
                     myFavorites.map((favorite, index) => {
                         if (!favorite || !favorite.name || !favorite.artist) {
-                            console.log("Invalid favorite data:", favorite);
                             return null;
                         }
-                        console.log("Favorite:", favorite.name, favorite.artist);
                         return (
                             <li key={index} className="list-items">
                                 <span className="list-item-number">
