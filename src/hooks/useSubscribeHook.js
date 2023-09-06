@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 export const useSubscribeHook = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const[isSubscribed, setIsSubscribed] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(true);
+    const navigate = useNavigate();
 
     const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$');
+
+    const closeSuccesModal = () => {setIsModalOpen(false);
+    navigate('/');}
 
     const subscribe = async (username, email, password, roles) => {
         console.log("Username:", username);
@@ -48,6 +54,7 @@ export const useSubscribeHook = () => {
                 } else {
                 localStorage.setItem('user', JSON.stringify(response.data));
                 setIsSubscribed(true);
+                closeSuccesModal();
                 }
            // toepassen om m af te sluiten en naar homepagina login button te gaan  usenavigate
         } catch (error) {
@@ -73,5 +80,5 @@ export const useSubscribeHook = () => {
     };
 
     // Return the variables from the hook
-    return { subscribe, isLoading, error, isSubscribed};
+    return { subscribe, isLoading, error, isSubscribed, isModalOpen};
 };

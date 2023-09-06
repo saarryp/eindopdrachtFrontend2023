@@ -22,7 +22,7 @@ The goal is to limit yourself and to inspire other people with artists or tracks
 
 ### Installation
 
-To run this web application make sure that you have an IDE such as Webstorm to compile the code.
+To run this web application make sure that you have an IDE such as Webstorm to compile the code. Best way to run this application is to use Chrome.
 
 ### New at this?
 
@@ -52,16 +52,21 @@ Installing via a Git link
    
 2. Install project dependencies using npm
 
-npm install
+    npm install
 
 3. Start development server
 
    npm start
 
-4. Open your webbrowser and go to http://localhost:3000 to view the application
+4. go to www.last.fm and create an API account, to get a token. Open a new file in the root .env en add your Api-token 
+   LASTFM_API_KEY=JE_API_SLEUTEL_HIER
+
+5. Open your webbrowser and go to http://localhost:3000 to view the application
 
 
-NOTE: YOU CAN MAKE AN ACCOUNT FOR 1 HOUR. IT IS RUNNING AT A BACKEND FROM SCHOOL, SO LIMITED TIME-WISE...
+
+
+# NOTE: YOU CAN MAKE AN (registration/login) ACCOUNT FOR **1 HOUR**. IT IS RUNNING with BACKEND FROM SCHOOL, only limited time of fun...
 * CREATE AN ACCOUNT: click the registration button to create an account. 
 * LOGIN: use the login button to log in.
 * MY SOUNDS: you can manage your own list of 10 tunes that are not to be missed.
