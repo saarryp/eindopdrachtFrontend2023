@@ -16,7 +16,12 @@
 .position-text-and-rest {
     display: flex;
     flex-direction: column;
-    margin: 140px;
+    align-items: center;
+    text-align: center;
+    /*margin: 100px;*/
+    padding-left: 100px;
+    padding-right: 150px;
+    padding-top: 60px
 }
 
 .about-us .yes {
@@ -25,7 +30,29 @@
 }
 
 .about-us .inspire {
-    margin: 90px 0 60px 0;
+    margin: 100px 0 100px 0;
     font-size: 30px;
     font-weight: bolder;
 }
+
+.container-subscribe-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-button-container {
+    color: #121111;
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    background-color: #F4E3B6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 10px;
+    border: 2px black;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+

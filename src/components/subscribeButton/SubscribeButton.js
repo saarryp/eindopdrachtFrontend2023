@@ -1,13 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SubscribeButton.css';
+import SubscribeModal from '../../components/subscribeModal/SubscribeModal'
 
 
-    const SubscribeButton = ({text, onClick}) => {
+const SubscribeButton = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    }
+
+
     return (
-        <button className="subscribe-button" onClick={onClick}>
-            SUBSCRIBE
-        </button>
+        <div className="container-subscribe-button">
+            <button
+                onClick={openModal}
+                className={`subscribe-button ${modalOpen ? 'active' : ''}`}
+            >
+                Register
+            </button>
+            {modalOpen && <SubscribeModal role={["user"]} closeModal={() => setModalOpen(false)}/>}
+        </div>
     );
-}
+};
+
 
 export default SubscribeButton

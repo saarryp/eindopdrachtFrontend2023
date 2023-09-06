@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: flex-start;
+    align-items: center;
     background-image: url("../../assets/ErykahBadu.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,12 +14,14 @@
 }
 
 .form-search-size {
+    align-self: flex-start;
     margin: 50px;
     width: 80%;
     max-width: 600px;
+    min-width: 600px;
 }
 
-.form-search-size form{
+.form-search-size form {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -26,21 +30,30 @@
     margin: auto;
     padding: 20px;
 }
- .input-field {
-     height:60px;
-     font-family: 'Inter', sans-serif;
-     font-size: 25px;
-     width: 100%;
-     max-width: 350px;
-     margin-left: 20px;
- }
- .spinner-container {
-     display: flex;
-     flex-direction: row;
-     align-items: flex-end;
-     margin-bottom: 25px;
-     /*border: 2px dotted deeppink;*/
- }
+
+.spinner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    position: absolute;
+    width: 750px;
+}
+
+.input-field {
+    max-width: 275px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.input-field,
+.search-button {
+    height: 60px;
+    font-size: 20px;
+    width: 100%;
+    max-width: 450px;
+}
 
 .search-button {
     margin-top: 2px;
@@ -48,14 +61,11 @@
     padding: 15px 30px;
     background-color: #B89437;
     color: white;
-    border-radius: 4px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 25px;
-    width: 100%;
-    max-width: 200px;
-    border: none !important;
-    /*border: 2px dotted yellow;*/
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 .ul-position {
@@ -84,11 +94,9 @@
     font-family: 'Inter', sans-serif;
     color: #121111;
     list-style: none;
-    /*border: 3px solid #B89437;*/
 }
 
 .ul-albums {
-    /*border: 2px solid greenyellow;*/
     padding: 50px;
     overflow-x: auto;
     display: flex;
@@ -139,9 +147,7 @@
     padding-right: 20px;
     margin: 0;
     list-style: none;
-    /*padding: 0;*/
     color: #121111;
-    /*border: 2px dotted white;*/
 }
 
 .track-entry {
@@ -151,7 +157,7 @@
     margin-bottom: 10px;
 }
 
-.container-tracks-like{
+.container-tracks-like {
     padding: 35px;
 }
 
@@ -171,10 +177,6 @@
     margin-bottom: 15px;
 }
 
-/*.title {*/
-/*    font-size: 21px;*/
-/*}*/
-
 h2 {
     display: flex;
     justify-content: center;
@@ -189,7 +191,6 @@ h2 {
 }
 
 .admin-button {
-    /*display: ${isAdmin ? "inline-block" : "none"}*/
     color: black;
     background-color: #FAF8E7;
     border-radius: 5px;
@@ -207,11 +208,8 @@ h2 {
     border-radius: 5px;
     width: 40px;
     height: 20px;
+    margin-left: 5px;
 }
-/*.music-emoji {*/
-/*    font-size: 10px;*/
-/*    margin-left: 5px;*/
-/*!*}*! <span className="music-emoji" role="img" aria-label="music">️</span>*/
 
 .tracks-not-found {
     display: flex;

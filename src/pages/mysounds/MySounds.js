@@ -1,33 +1,33 @@
 import "./MySounds.css"
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
+import LogoutButton from "../../components/logoutButton/LogoutButton";
+import {AuthContext} from "../../context/AuthContext";
+
+export default function MySounds() {
+    const [myFavorites, setMyFavorites] = useState([]);
+    const {user} = useContext(AuthContext);
 
 
+    useEffect(() => {
+        const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        setMyFavorites(storedFavorites);
+    }, []);
 
-    export default function MySounds() {
-        const [myFavorites, setMyFavorites] = useState([]);
-
-        useEffect(() => {
-            const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-            setMyFavorites(storedFavorites);
-        }, []);
-
-        const handleRemoveMyFavorite = (track) => {
-            const updatedFavorites = myFavorites.filter((favorite) => favorite.name !== track.name || favorite.artist !== track.artist);
-            setMyFavorites(updatedFavorites);
-            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-        };
+    const handleRemoveMyFavorite = (track) => {
+        const updatedFavorites = myFavorites.filter((favorite) => favorite.name !== track.name || favorite.artist !== track.artist);
+        setMyFavorites(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    };
 
 
-        return (
+    return (
         <div className="background-container">
             <ol>
                 {myFavorites.length > 0 ? (
                     myFavorites.map((favorite, index) => {
                         if (!favorite || !favorite.name || !favorite.artist) {
-                            console.log("Invalid favorite data:", favorite);
                             return null;
                         }
-                        console.log("Favorite:", favorite.name, favorite.artist);
                         return (
                             <li key={index} className="list-items">
                                 <span className="list-item-number">
@@ -37,16 +37,17 @@ import React, {useEffect, useState} from 'react';
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <p className="track-name">{favorite.name }</p>
-
+                                    <p className="track-name">{favorite.name}</p>
                                     <p>{favorite.artist.name}</p>
                                 </a>
                                 {" "}
-                                <div className="border-for-delete">
-                                    <button className="delete-button" onClick={() => handleRemoveMyFavorite(favorite)}>
-                                        delete song
-                                    </button>
-                                </div>
+                                {(user.roles[0] === 'ROLE_USER') &&
+                                    <div className="border-for-delete">
+                                        <button className="delete-button"
+                                                onClick={() => handleRemoveMyFavorite(favorite)}>
+                                            delete song
+                                        </button>
+                                    </div>}
                             </li>
                         );
                     })
@@ -55,9 +56,12 @@ import React, {useEffect, useState} from 'react';
                 )}
             </ol>
             <div className="position-button">
-                <button className="button-logout">uitloggen</button>
+                <div className="button-logout">
+                    <LogoutButton/>
+                </div>
             </div>
         </div>
+
     );
 }
 

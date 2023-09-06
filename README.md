@@ -1,70 +1,102 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Name
 
-## Available Scripts
+Soul Sounds
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About](#about)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Shout out to](#contributing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Project Screenshot](src/assets/about-the-project.png)
 
-### `npm test`
+## About The Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is a final assignment for front-end bootcamp at the Novi University of Applied Science.
+The project was created by using the API last.fm (https://www.last.fm/).
 
-### `npm run build`
+This application is for all disco-funk-jazz-gospel-house-heads that like to be inspired by fellow music-lovers. What is
+the deal?
+Say you are stranded at a deserted island and you can only pick 10 favorite tunes. Or the DJ for that night with only 10
+songs to be spinned. You have to chose wisely. What tracks would you pick? It is way harder than you think to limit
+yourself. That in itself is a challenge, right?
+The goal is to limit yourself and to inspire other people with artists or tracks that are rare or just simply a standard
+banger. Just because algorithms often don't bring you songs that might inspire you, just what is often listened to. A
+sort a crate digging to engage your curiosity.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this web application make sure that you have an IDE such as Webstorm to compile the code. Best way to run this
+application is to use Chrome.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### New at this?
 
-### `npm run eject`
+1. Download the application
+   Via a zip file
+   Via an SSH link
+2. Install the dependencies
+3. Start the application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Installing via a Zip
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Go to GitHub and click on <> Code to download the zip file.
+2. After downloading the zip file, you need to extract the file. Navigate to the file and right-click on it, then click
+   on Extract All.
+   Once you have extracted the file, you can go to your IDE of choice. In this example, we will be using the Jet Brains
+   IDE, called WebStorm. When you open the IDE, go to Projects/Open.
+3. Then navigate to the extracted file, click on the folder where everything is located, and click OK. Proceed to step
+   2.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Installing via a Git link
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Go to GitHub and click on <> Code and copy the SSH link.
+2. Go directly to your IDE of choice. In this example WebStorm is used (Jet Brains IDE) . Once opened the IDE, go to
+   Projects/Get from VCS.
+3. Paste the link you copied into the URL bar and click on Open.
 
-## Learn More
+### Not new at this? then just follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository to your local machine:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   git clone https://github.com/saarryp/eindopdrachtFrontend2023
 
-### Code Splitting
+2. Install project dependencies using npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   npm install
 
-### Analyzing the Bundle Size
+3. Start development server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   npm start
 
-### Making a Progressive Web App
+4. go to www.last.fm and create an API account, to get a token. Open a new file in the root .env en add your Api-token
+   LASTFM_API_KEY=JE_API_SLEUTEL_HIER
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. Open your webbrowser and go to http://localhost:3000 to view the application
 
-### Advanced Configuration
+# NOTE: YOU CAN MAKE AN (registration/login) ACCOUNT FOR **1 HOUR
+**. IT IS RUNNING with BACKEND FROM SCHOOL, only limited time of fun...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* CREATE AN ACCOUNT: click the registration button to create an account.
+* LOGIN: use the login button to log in.
+* MY SOUNDS: you can manage your own list of 10 tunes that are not to be missed.
+* SEARCH: you can find tracks and artistnames
+* OUR SOUNDS: check what tunes we like and make us curious and proud what you come up with.
 
-### Deployment
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Just enjoy the funky ride, no other things that need to be mentioned!
 
-### `npm run build` fails to minify
+## SHOUT OUT TO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MANY, but these ones in particular Rowan (bless you for your patience!), Tessa, Nova, Rav, Elwyn and Sam for leading me
+the way in code-jungle.
+
+
+
+

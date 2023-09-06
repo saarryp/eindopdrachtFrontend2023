@@ -1,9 +1,9 @@
-
 import "./Search.css";
 import React, {useState} from "react";
 import axios from "axios";
 import Spinner from "../../components/spinner/Spinner";
 import SearchResults from "../../components/searchresults/SearchResults";
+import WarningLimit from "../../components/warningLimit/WarningLimit";
 
 export default function Search() {
     const [query, setQuery] = useState('');
@@ -13,6 +13,10 @@ export default function Search() {
         },
     });
     const [loading, setLoading] = useState(false);
+    const [isWarningModalOpen, setIsWarningModalOpen] = useState(false);
+    const closeWarningModal = () => {
+        setIsWarningModalOpen(false);
+    }
 
     const fetchAlbumDetails = async (mbid) => {
         try {
@@ -28,14 +32,11 @@ export default function Search() {
 
 
     const favoriteSong = (track) => {
-        console.log(track);
-
         const currentFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         const isSongLiked = currentFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
 
-        // Check if the number of favorites exceeds 10
         if (currentFavorites.length >= 10) {
-            alert('You have more than 10 favorite songs. Delete songs in your MySounds page.');
+            setIsWarningModalOpen(true);
             return;
         }
 
@@ -47,19 +48,16 @@ export default function Search() {
             updatedFavorites = [...currentFavorites, {name, artist}];
         }
 
-        // Update the liked songs in localStorage
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-        console.log(updatedFavorites);
     };
 
-    const handleAdminAction = (track) => {
-        console.log("Admin action for:", track.name, track.artist);
 
+    const handleAdminAction = (track) => {
         const currentOurFavorites = JSON.parse(localStorage.getItem('ourFavorites') || '[]');
         const isOurSongLiked = currentOurFavorites.some((favorite) => favorite.name === track.name && favorite.artist === track.artist);
 
         if (currentOurFavorites.length >= 10) {
-            alert('Admin you have more than 10 favorite songs. Delete songs in your OurSounds page.');
+            setIsWarningModalOpen(true)
             return;
         }
 
@@ -71,9 +69,7 @@ export default function Search() {
             updatedOurFavorites = [...currentOurFavorites, {name, artist}];
         }
 
-        // Update the liked songs in localStorage
         localStorage.setItem('ourFavorites', JSON.stringify(updatedOurFavorites));
-        console.log(updatedOurFavorites);
     };
 
     let handleSubmit = async (e) => {
@@ -98,7 +94,7 @@ export default function Search() {
                 }
             }
 
-            setResults({ albummatches: { album: uniqueAlbums } });
+            setResults({albummatches: {album: uniqueAlbums}});
             setQuery('')
         } catch (err) {
             console.log(err);
@@ -109,31 +105,28 @@ export default function Search() {
 
     return (
         <div className="container-photo-search-engine">
-            <div className="position-button-and-results">
-                <form className="form-search-size" onSubmit={handleSubmit}>
-                    <div className="spinner-container">
-                        <input
-                            className="input-field"
-                            type="text"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <button className="search-button" type="submit">
-                            Search
-                        </button>
-                    </div>
-                </form>
-                <div>
-                    {loading ? (
-                        <Spinner />
-                    ) : (
-                        <SearchResults
-                            results={results}
-                            onAddToFavorites={favoriteSong}
-                            handleAdminAction={handleAdminAction}/>
+            <WarningLimit isOpen={isWarningModalOpen} onClose={closeWarningModal}/>
+            <form className={`form-search-size ${loading ? 'loading' : ''}`} onSubmit={handleSubmit}>
+                <div className="spinner-container">
+                    <input
+                        className="input-field"
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <button className="search-button" type="submit">
+                        Search
+                    </button>
+                    {loading && (<div className="spinner-overlay">
+                            <Spinner/>
+                        </div>
                     )}
                 </div>
-            </div>
+            </form>
+            <SearchResults
+                results={results}
+                onAddToFavorites={favoriteSong}
+                handleAdminAction={handleAdminAction}/>
         </div>
     );
 }

@@ -21,8 +21,6 @@ h1,h2,h3,h4 {
   box-sizing: border-box;
 }
 
-/* staat boven aan de lijst met styling */
-
 a,
 a:hover,
 a:visited {
@@ -33,5 +31,3 @@ a:visited {
 body {
   background-color: #121111;
 }
-
-/* alle andere css komt hier onder in andere bestanden */

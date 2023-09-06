@@ -3,7 +3,6 @@ import "./HomePage.css";
 import LoginButton from "../../components/loginButton/LoginButton";
 import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
 
-
 export default function Home() {
     return (
         <>
