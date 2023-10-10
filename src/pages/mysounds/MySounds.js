@@ -55,11 +55,11 @@ export default function MySounds() {
                     <p className="list-items">No favorites found.</p>
                 )}
             </ol>
-            <div className="position-button">
+            <footer className="position-button">
                 <div className="button-logout">
                     <LogoutButton/>
                 </div>
-            </div>
+            </footer>
         </div>
 
     );

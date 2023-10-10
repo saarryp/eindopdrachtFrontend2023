@@ -56,11 +56,11 @@ export default function OurSounds() {
                     <p className="list-items">No favorites found.</p>
                 )}
             </ol>
-            <div className="position-button-our-sounds">
+            <footer className="position-button-our-sounds">
                 <div className="button-logout-our-sounds">
                     <LogoutButton/>
                 </div>
-            </div>
+            </footer>
         </div>
     );
 }
