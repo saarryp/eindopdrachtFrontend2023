@@ -23,6 +23,7 @@ export default function Search() {
             const token = process.env.REACT_APP_LASTFM_TOKEN;
             const url = `http://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid=${mbid}&api_key=${token}&format=json`;
             const response = await axios.get(url);
+            console.log(response.data)
             return response.data;
         } catch (err) {
             console.log(err);

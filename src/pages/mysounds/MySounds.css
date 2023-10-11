@@ -81,6 +81,22 @@ ol {
     justify-self: flex-end;
 }
 
+.similar-button {
+    color: black;
+    background-color: whitesmoke;
+    font-family: 'Inter', sans-serif;
+    /*border: 1px dotted black;*/
+    border-radius: 5px ;
+    padding: 5px;
+}
+.delete-button-container {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
 .delete-button {
     color: black;
     background-color: #F4E3B6;
@@ -119,3 +135,4 @@ ol {
     border-color: #121111;
     border-radius: 50%;
 }
+
