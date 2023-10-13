@@ -3,6 +3,7 @@ import './SimilarTracksModal.css';
 
 const SimilarTracksModal = ({isOpen, similarTracks, onClose}) => {
     if (!isOpen) return null;
+console.log(similarTracks, isOpen);
 
     return (
         <div className="modal-similar-tracks">

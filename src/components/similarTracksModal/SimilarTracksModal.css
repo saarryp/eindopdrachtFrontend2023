@@ -1,0 +1,19 @@
+.modal-similar-tracks {
+    font-size: 14px;
+    color: black;
+    background-color: #F4E3B6;
+    border: 2px dotted black;
+}
+
+.modal-content-similar-tracks{
+    border: 2px dotted green;
+}
+
+.close-similar-tracks {
+    font-family: 'Inter', sans-serif;
+}
+
+h2 {
+    font-size: 25px;
+    color: black;
+}

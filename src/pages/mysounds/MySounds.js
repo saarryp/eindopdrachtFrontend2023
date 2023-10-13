@@ -47,9 +47,15 @@ export default function MySounds() {
 
                 try {
                     console.log(modifiedArtist, modifiedName)
+
                     const res = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${modifiedArtist}&track=${modifiedName}&api_key=${apiKey}&format=json`)
-                    console.log(res.data)
-                    setSimilarTracks(res.data)
+                    console.log(res.data.similartracks.track)
+
+                    setSimilarTracks(res.data.similartracks.track)
+
+                    console.log('opening modal');
+                    setIsModalOpen(true);
+                    console.log(isModalOpen);
 
                 } catch (e) {
                     console.error(e)
@@ -90,15 +96,16 @@ export default function MySounds() {
                                             {similarTracks.length > 0 && (
                                                 <div>
                                                     <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+                                                    {isModalOpen && similarTracks.length > 0 && (
+                                                        <SimilarTracksModal
+                                                            isOpen={isModalOpen}
+                                                            similarTracks={similarTracks}
+                                                            onClose={() => setIsModalOpen(false)}
+                                                        />
+                                                    )}
                                                 </div>
                                                 )}
-                                            {isModalOpen && similarTracks.length > 0 && (
-                                                <SimilarTracksModal
-                                                    isOpen={isModalOpen}
-                                                    similarTracks={similarTracks}
-                                                    onClose={() => setIsModalOpen(false)}
-                                                />
-                                                )}
+
                                             <div className="delete-button-container">
                                             <button className="delete-button"
                                                     onClick={() => handleRemoveMyFavorite(favorite)}>
@@ -114,6 +121,7 @@ export default function MySounds() {
                         <p className="list-items">No favorites found. Go to search-page to add music.</p>
                     )}
                 </ol>
+
                 <footer className="position-button">
                     <div className="button-logout">
                         <LogoutButton/>
