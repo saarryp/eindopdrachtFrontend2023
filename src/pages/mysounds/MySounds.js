@@ -10,6 +10,7 @@ export default function MySounds() {
     const {user} = useContext(AuthContext);
     const [artistName, setArtist] = useState('');
     const [similarTracks, setSimilarTracks] = useState({});
+    const [selectedTrack, setSelectedTrack] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -41,6 +42,8 @@ export default function MySounds() {
             const modifiedName = favorite.name.replaceAll(' ', '+');
 
         setArtist(modifiedArtist);
+        setSelectedTrack(favorite);
+
         const apiKey = process.env.REACT_APP_LASTFM_TOKEN;
 
             async function fetchData(){
@@ -51,7 +54,12 @@ export default function MySounds() {
                     const res = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${modifiedArtist}&track=${modifiedName}&api_key=${apiKey}&format=json`)
                     console.log(res.data.similartracks.track)
 
-                    setSimilarTracks(res.data.similartracks.track)
+                    // setSimilarTracks(res.data.similartracks.track);
+
+                    const similarTracks = res.data.similartracks.track;
+                    const randomTracks = getRandomTracks(similarTracks, 15);
+                    setSimilarTracks(randomTracks);
+
 
                     console.log('opening modal');
                     setIsModalOpen(true);
@@ -68,6 +76,34 @@ export default function MySounds() {
         }
     }
 
+    const openModal = (favorite) => {
+        setSelectedTrack(favorite);
+        setIsModalOpen(true);
+    };
+
+    // Function to close the modal
+    const closeModal = () => {
+        setSelectedTrack(null);
+        setIsModalOpen(false);
+    };
+
+    function getRandomTracks(allTracks, count) {
+        if (count >= allTracks.length) {
+            return shuffleArray(allTracks);
+        } else {
+            const shuffledTracks = shuffleArray(allTracks);
+            return shuffledTracks.slice(0, count);
+        }
+    }
+
+    function shuffleArray(array) {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    }
     return (
             <div className="background-container">
                 <ol>
@@ -93,16 +129,17 @@ export default function MySounds() {
                                         <div className="border-for-delete">
                                             <button className="similar-button" onClick={() => handleClick(favorite)}> similar tracks
                                             </button>
-                                            {similarTracks.length > 0 && (
+                                            {selectedTrack && selectedTrack.name === favorite.name && (
                                                 <div>
-                                                    <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
-                                                    {isModalOpen && similarTracks.length > 0 && (
-                                                        <SimilarTracksModal
-                                                            isOpen={isModalOpen}
-                                                            similarTracks={similarTracks}
-                                                            onClose={() => setIsModalOpen(false)}
-                                                        />
-                                                    )}
+                                                    {/*<button onClick={() => setIsModalOpen(true)}>*/}
+                                                    {/*</button>*/}
+                                                    {/*{isModalOpen && similarTracks.length > 0 && (*/}
+                                                    {/*    <SimilarTracksModal*/}
+                                                    {/*        isOpen={isModalOpen}*/}
+                                                    {/*        similarTracks={similarTracks}*/}
+                                                    {/*        onClose={() => setIsModalOpen(false)}*/}
+                                                    {/*    />*/}
+                                                    {/*)}*/}
                                                 </div>
                                                 )}
 
@@ -121,13 +158,24 @@ export default function MySounds() {
                         <p className="list-items">No favorites found. Go to search-page to add music.</p>
                     )}
                 </ol>
+                {isModalOpen && (
+                    <div className="modal-container">
+                        <SimilarTracksModal
+                            isOpen={isModalOpen}
+                            similarTracks={similarTracks}
+                            onClose={closeModal}
+                            selectedTrack={selectedTrack}
+                        />
+                    </div>
+                )}
 
                 <footer className="position-button">
                     <div className="button-logout">
                         <LogoutButton/>
                     </div>
                 </footer>
-</div>
+
+    </div>
 
     );
 }
