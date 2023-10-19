@@ -7,7 +7,7 @@ import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
 export default function AboutUs() {
     return (
         <>
-            <div className="container-about-photo">
+            <main className="container-about-photo">
                 <div className="image-element-au"></div>
                 <div className="position-text-button">
                     <div className="container-text-about">
@@ -29,7 +29,7 @@ export default function AboutUs() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </>
     );
 }

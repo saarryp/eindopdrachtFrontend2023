@@ -150,3 +150,15 @@ ol {
     border-radius: 50%;
 }
 
+.footer-color {
+    background-color: black;
+    margin-top: -20px;
+    height: 1800px;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 11px;
+}

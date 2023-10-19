@@ -18,7 +18,9 @@ export default function MySounds() {
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         setMyFavorites(storedFavorites);
+
     }, []);
+
 
 
     const handleRemoveMyFavorite = (track) => {
@@ -26,13 +28,6 @@ export default function MySounds() {
         setMyFavorites(updatedFavorites);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
-        // const handleClick = (trackNames) => {
-        // console.log(trackNames)
-        // let name = trackNames;
-        // name = name.replaceAll(' ', '+')
-        // setArtist(name);
-        // console.log(artistName)
-
 
     const handleClick = (favorite) => {
         if(favorite && favorite.name) {
@@ -46,6 +41,7 @@ export default function MySounds() {
 
         const apiKey = process.env.REACT_APP_LASTFM_TOKEN;
 
+
             async function fetchData(){
 
                 try {
@@ -53,8 +49,6 @@ export default function MySounds() {
 
                     const res = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${modifiedArtist}&track=${modifiedName}&api_key=${apiKey}&format=json`)
                     console.log(res.data.similartracks.track)
-
-                    // setSimilarTracks(res.data.similartracks.track);
 
                     const similarTracks = res.data.similartracks.track;
                     const randomTracks = getRandomTracks(similarTracks, 15);
@@ -104,8 +98,9 @@ export default function MySounds() {
         }
         return shuffledArray;
     }
-    return (
-            <div className="background-container">
+    return ( <>
+            <main className="background-container">
+                <section>
                 <ol>
                     {myFavorites.length > 0 ? (
                         myFavorites.map((favorite, index) => {
@@ -129,19 +124,7 @@ export default function MySounds() {
                                         <div className="border-for-delete">
                                             <button className="similar-button" onClick={() => handleClick(favorite)}> similar tracks
                                             </button>
-                                            {selectedTrack && selectedTrack.name === favorite.name && (
-                                                <div>
-                                                    {/*<button onClick={() => setIsModalOpen(true)}>*/}
-                                                    {/*</button>*/}
-                                                    {/*{isModalOpen && similarTracks.length > 0 && (*/}
-                                                    {/*    <SimilarTracksModal*/}
-                                                    {/*        isOpen={isModalOpen}*/}
-                                                    {/*        similarTracks={similarTracks}*/}
-                                                    {/*        onClose={() => setIsModalOpen(false)}*/}
-                                                    {/*    />*/}
-                                                    {/*)}*/}
-                                                </div>
-                                                )}
+                                            {selectedTrack && selectedTrack.name === favorite.name}
 
                                             <div className="delete-button-container">
                                             <button className="delete-button"
@@ -158,6 +141,8 @@ export default function MySounds() {
                         <p className="list-items">No favorites found. Go to search-page to add music.</p>
                     )}
                 </ol>
+                </section>
+                <aside>
                 {isModalOpen && (
                     <div className="modal-container">
                         <SimilarTracksModal
@@ -168,14 +153,20 @@ export default function MySounds() {
                         />
                     </div>
                 )}
-
-                <footer className="position-button">
+                </aside>
+                <div className="position-button">
                     <div className="button-logout">
                         <LogoutButton/>
                     </div>
+                </div>
+                <footer className="footer-color">
+                    copyright Sassy S
                 </footer>
 
-    </div>
+            </main>
+
+
+</>
 
     );
 }
