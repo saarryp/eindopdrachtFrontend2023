@@ -67,7 +67,6 @@ ul {
 
 .list-items-similar:hover {
     cursor: pointer;
-    /*color: darkslategray;*/
     font-size: 20px;
     transition: all 0.3s;
 }
