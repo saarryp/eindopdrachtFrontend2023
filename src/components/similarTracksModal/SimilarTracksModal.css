@@ -1,34 +1,71 @@
 .modal-similar-tracks {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    position: fixed;
-    top: 300px;
-    right: 0;
-    left: 0;
-    width: 700px;
-    height: 80%;
-    font-size: 14px;
-    color: black;
-    background-color: #F4E3B6;
-    overflow-y: auto;
-    border: 2px dotted blueviolet;
+    position: absolute;
+    top: 25%;
+    transform: translate(-50%, -20%);
+    z-index: 1000;
+}
+
+@keyframes modalBackgroundAnimation {
+    0% {
+        background-color: navajowhite;
+    }
+    30% {
+        background-color:beige;
+    }
+    50% {
+        background-color: whitesmoke;
+    }
+    75% {
+        background-color: #F4E3B6;
+    }
+    100% {
+        background-color:papayawhip;
+    }
 }
 
 .modal-content-similar-tracks{
-    border: 2px dotted green;
+    border: 10px black;
+    font-size: 14px;
+    color: #121111;
+    padding: 20px;
+    animation: modalBackgroundAnimation 20s infinite;
 }
 
 .close-similar-tracks {
     font-family: 'Inter', sans-serif;
     position: absolute;
-    top: 10px;
+    top: 1px;
+    right: 10px;
     cursor: pointer;
+    font-size: 30px;
 
 }
 
+.border-header {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.similar-track-header {
+    font-size: 16px;
+}
+
 h2 {
-    font-size: 25px;
-    color: black;
+    font-size: 30px;
+    color: whitesmoke;
+    background-color: #333333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.list-items-similar {
+    border: 1px dotted black;
+    padding: 10px;
+}
+
+.bold-text {
+    font-weight: bold;
+    font-size: 10px;
 }
