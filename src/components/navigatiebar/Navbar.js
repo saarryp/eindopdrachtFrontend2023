@@ -10,13 +10,13 @@ export default function Navbar() {
                     <h1 className="brand-name">soul sounds</h1>
                     <p className="subtitle">what is your favorite tune?</p>
                 </div>
-                <div className="nav-links-container">
+                <header className="nav-links-container">
                     <NavLink exact="true" to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/about-us" activeClassName="active">About Us</NavLink>
                     <NavLink to="/our-sounds" activeClassName="active">Our Sounds</NavLink>
                     <NavLink to="/search" activeClassName="active">Search</NavLink>
                     <NavLink to="/my-sounds" activeClassName="active">My Sounds</NavLink>
-                </div>
+                </header>
             </nav>
         </>
     )

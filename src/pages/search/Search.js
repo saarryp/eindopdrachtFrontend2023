@@ -25,7 +25,7 @@ export default function Search() {
             const response = await axios.get(url);
             return response.data;
         } catch (err) {
-            console.log(err);
+            console.error(err);
             return null;
         }
     };
@@ -97,14 +97,14 @@ export default function Search() {
             setResults({albummatches: {album: uniqueAlbums}});
             setQuery('')
         } catch (err) {
-            console.log(err);
+            console.error(err);
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="container-photo-search-engine">
+        <main className="container-photo-search-engine">
             <WarningLimit isOpen={isWarningModalOpen} onClose={closeWarningModal}/>
             <form className={`form-search-size ${loading ? 'loading' : ''}`} onSubmit={handleSubmit}>
                 <div className="spinner-container">
@@ -127,7 +127,9 @@ export default function Search() {
                 results={results}
                 onAddToFavorites={favoriteSong}
                 handleAdminAction={handleAdminAction}/>
-        </div>
+
+        </main>
+
     );
 }
 

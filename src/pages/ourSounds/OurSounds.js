@@ -22,7 +22,7 @@ export default function OurSounds() {
 
 
     return (
-        <div className="background-container">
+        <main className="background-container">
             <ol>
                 {ourFavorites.length > 0 ? (
                     ourFavorites.map((favorite, index) => {
@@ -56,13 +56,19 @@ export default function OurSounds() {
                     <p className="list-items">No favorites found.</p>
                 )}
             </ol>
-            <div className="position-button-our-sounds">
+            <section className="position-button-our-sounds">
                 <div className="button-logout-our-sounds">
                     <LogoutButton/>
                 </div>
-            </div>
-        </div>
-    );
+            </section>
+
+        <footer className="footer-oursounds">
+            copyright Sassy S
+        </footer>
+        </main>
+
+
+);
 }
 
 

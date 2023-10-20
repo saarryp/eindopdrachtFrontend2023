@@ -17,7 +17,7 @@ const ButtonLogIn = ({onLogin}) => {
 
     return (
         <div>
-            <button className="login-button" onClick={openModal}>
+            <button className="login-button" type = "submit" onClick={openModal}>
                 Login
             </button>
             <LoginModal isOpen={modalOpen} onClose={closeModal} onLogin={onLogin}/>

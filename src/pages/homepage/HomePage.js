@@ -6,11 +6,11 @@ import SubscribeButton from "../../components/subscribeButton/SubscribeButton";
 export default function Home() {
     return (
         <>
-            <div className="container-about-photo">
+            <main className="container-about-photo">
                 <div className="image-element-gl"></div>
                 <div className="position-text-button">
                     <div className="position-text-and-rest">
-                        <article className="about-us">
+                        <section className="about-us">
                             <p>Are you bored of that same shizzle again and again?</p>
                             <p>Is a streaming service sending you the same suggestions?</p>
                             <p>Are you into soul, funk, disco and other related genres?</p>
@@ -18,14 +18,14 @@ export default function Home() {
                             <p>Join our platform of fellow music-lovers.</p>
                             <p>Make your own top 10 of not-to-be-missed tunes.</p>
                             <p className="inspire">INSPIRE AND GET INSPIRED.</p>
-                        </article>
+                        </section>
                         <div className="container-subscribe-button-about">
                             <SubscribeButton/>
                             <LoginButton/>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </>
     );
 }

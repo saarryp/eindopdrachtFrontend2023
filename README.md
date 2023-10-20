@@ -38,7 +38,7 @@ application is to use Chrome.
 
 1. Download the application
    Via a zip file
-   Via an SSH link
+   Via an SSH linknpm start
 2. Install the dependencies
 3. Start the application
 

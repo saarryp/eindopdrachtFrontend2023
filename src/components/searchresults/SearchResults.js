@@ -27,13 +27,13 @@ export default function SearchResults({results, onAddToFavorites, handleAdminAct
                                                 {track.name}
                                             </a>
                                             {(user.roles[0] === 'ROLE_ADMIN') &&
-                                                <button className="admin-button"
+                                                <button type = "submit" className="admin-button"
                                                         onClick={() => handleAdminAction(track)}>
                                                     admin
                                                 </button>}
                                         </div>
                                         {(user.roles[0] === 'ROLE_USER') &&
-                                            <button className="like-button" onClick={() => onAddToFavorites(track)}>
+                                            <button type = "submit" className="like-button" onClick={() => onAddToFavorites(track)}>
                                                 Like
                                             </button>}
                                     </li>
