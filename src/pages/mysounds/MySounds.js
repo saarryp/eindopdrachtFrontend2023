@@ -18,7 +18,6 @@ export default function MySounds() {
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         setMyFavorites(storedFavorites);
-
     }, []);
 
 
@@ -45,19 +44,15 @@ export default function MySounds() {
             async function fetchData(){
 
                 try {
-                    console.log(modifiedArtist, modifiedName)
 
                     const res = await axios.get(`http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${modifiedArtist}&track=${modifiedName}&api_key=${apiKey}&format=json`)
-                    console.log(res.data.similartracks.track)
 
                     const similarTracks = res.data.similartracks.track;
                     const randomTracks = getRandomTracks(similarTracks, 15);
                     setSimilarTracks(randomTracks);
 
-
-                    console.log('opening modal');
                     setIsModalOpen(true);
-                    console.log(isModalOpen);
+
 
                 } catch (e) {
                     console.error(e)

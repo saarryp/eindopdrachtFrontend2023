@@ -53,7 +53,7 @@ const LoginModal = ({isOpen, onClose, onLogin}) => {
                         </button>
                         {errormessage && <p className="error-message-login">{errormessage}</p>}
                     </form>
-                    <button className="close-login-button" onClick={onClose}>
+                    <button className="close-login-button" type = "button" onClick={onClose}>
                         &times;
                     </button>
                 </div>
