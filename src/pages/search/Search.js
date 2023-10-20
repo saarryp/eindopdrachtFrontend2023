@@ -104,7 +104,7 @@ export default function Search() {
     };
 
     return (
-        <div className="container-photo-search-engine">
+        <main className="container-photo-search-engine">
             <WarningLimit isOpen={isWarningModalOpen} onClose={closeWarningModal}/>
             <form className={`form-search-size ${loading ? 'loading' : ''}`} onSubmit={handleSubmit}>
                 <div className="spinner-container">
@@ -127,7 +127,9 @@ export default function Search() {
                 results={results}
                 onAddToFavorites={favoriteSong}
                 handleAdminAction={handleAdminAction}/>
-        </div>
+
+        </main>
+
     );
 }
 
