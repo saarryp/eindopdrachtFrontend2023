@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './LogInModal.css';
-import '../../hooks/useLoginHook';
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 

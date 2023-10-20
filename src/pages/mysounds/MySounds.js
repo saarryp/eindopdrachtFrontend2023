@@ -30,7 +30,6 @@ export default function MySounds() {
 
     const handleClick = (favorite) => {
         if(favorite && favorite.name) {
-            console.log(favorite && favorite.name);
 
             const modifiedArtist = favorite.artist.name.replaceAll(' ', '+');
             const modifiedName = favorite.name.replaceAll(' ', '+');
@@ -157,11 +156,7 @@ export default function MySounds() {
                 <footer className="footer-color">
                     copyright Sassy S
                 </footer>
-
             </main>
-
-
-</>
-
+        </>
     );
 }

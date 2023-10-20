@@ -10,15 +10,14 @@ const SimilarTracksModal = ({isOpen, similarTracks, onClose, selectedTrack}) => 
         return null;
 
 }
-    console.log(similarTracks, isOpen);
 
     return (
         <div className="modal-similar-tracks">
             <div className="modal-content-similar-tracks">
                 <span className="close-similar-tracks" onClick={onClose}>&times;</span>
-                <h2 className="border-header">Similar Tracks for
-                    <p className="similar-track-header">{selectedTrack.name} by {selectedTrack.artist.name}</p>
-                </h2>
+                    <h2 className="border-header">Similar Tracks for
+                        <p className="similar-track-header">{selectedTrack.name} by {selectedTrack.artist.name}</p>
+                    </h2>
                 {similarTracks.length > 0 ? (
                     <ul>
                         {similarTracks.map((track, index) => (
